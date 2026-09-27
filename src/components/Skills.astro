@@ -1,0 +1,23 @@
+---
+import { skills } from "@/lib/profile";
+import Section from "./Section.astro";
+---
+
+<Section id="habilidades" eyebrow="05 — Competencias" title="Stack Técnico por Capas">
+  <div class="divide-y divide-border border-y border-border">
+    {skills.map((group) => (
+      <div class="grid gap-3 py-6 md:grid-cols-4 md:gap-8 items-baseline">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-accent md:col-span-1">
+          {group.category}
+        </h3>
+        <ul class="flex flex-wrap gap-2 md:col-span-3">
+          {group.items.map((item) => (
+            <li class="rounded border border-border bg-surface px-2.5 py-1 font-mono text-xs text-muted">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Section>

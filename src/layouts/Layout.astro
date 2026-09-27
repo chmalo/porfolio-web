@@ -1,0 +1,94 @@
+---
+import "@fontsource/geist-sans";
+import "@fontsource/geist-mono";
+import "@/styles/globals.css";
+import { profile } from "@/lib/profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: "website" | "article";
+  image?: string;
+  schema?: Record<string, unknown>;
+}
+
+const defaultTitle = `${profile.name} — ${profile.role}`;
+const defaultDescription =
+  "Desarrollador Full-Stack y Team Lead con más de 6 años de experiencia en sistemas ERP empresariales, arquitectura DDD y proyectos bancarios corporativos.";
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  ogType = "website",
+  image = "/og-image.png",
+  schema,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://christianfernandez.dev");
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+
+const defaultSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  description: profile.summary,
+  url: canonicalURL,
+  sameAs: [profile.social.github, profile.social.linkedin],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sucre",
+    addressRegion: "Sucre",
+    addressCountry: "VE",
+  },
+};
+
+const activeSchema = schema ?? defaultSchemaData;
+---
+
+<!doctype html>
+<html lang="es" class="h-full antialiased dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={profile.name} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script is:inline>
+      (function () {
+        try {
+          const t = localStorage.getItem("theme");
+          const dark =
+            t === "dark" ||
+            (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+          else document.documentElement.classList.remove("dark");
+        } catch {}
+      })();
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify(activeSchema)} />
+  </head>
+  <body class="min-h-full flex flex-col bg-background text-foreground">
+    <slot />
+  </body>
+</html>

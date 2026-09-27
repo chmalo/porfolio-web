@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Resumen para Agentes de IA y LLMs
+# https://www.ggomez.website/llms.txt
+
+Sitemap: https://www.ggomez.website/sitemap-index.xml

@@ -1,0 +1,76 @@
+---
+import { profile } from "@/lib/profile";
+import Icon from "./Icon.astro";
+import Section from "./Section.astro";
+
+type ContactItem = {
+  label: string;
+  value: string;
+  href: string;
+  iconName: "mail" | "phone" | "linkedin" | "github";
+  external?: boolean;
+};
+
+const links: ContactItem[] = [
+  {
+    label: "Email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    iconName: "mail",
+  },
+  {
+    label: "Teléfono",
+    value: profile.phone,
+    href: profile.phoneHref,
+    iconName: "phone",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/christian-fernandez-dev",
+    href: profile.social.linkedin,
+    iconName: "linkedin",
+    external: true,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/chmalo",
+    href: profile.social.github,
+    iconName: "github",
+    external: true,
+  },
+];
+---
+
+<Section id="contacto" eyebrow="07 — Contacto" title="Canales Directos">
+  <div class="grid gap-12 md:grid-cols-5">
+    <div class="md:col-span-2">
+      <p class="text-sm leading-relaxed text-muted">
+        Disponible para evaluar posiciones Senior Full-Stack Developer, Team Lead o consultoría técnica de arquitectura en Laravel y React.
+      </p>
+      <a
+        href={`mailto:${profile.email}`}
+        class="mt-6 inline-flex h-10 items-center gap-2 rounded bg-accent px-5 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
+      >
+        Enviar Correo Directo
+        <Icon name="arrow-up-right" />
+      </a>
+    </div>
+    <ul class="divide-y divide-border border-y border-border md:col-span-3">
+      {links.map(({ label, value, href, iconName, external }) => (
+        <li>
+          <a
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            class="group flex items-center gap-4 py-4 transition-colors hover:text-accent"
+          >
+            <Icon name={iconName} class="text-subtle transition-colors group-hover:text-accent" />
+            <span class="w-24 font-mono text-xs text-subtle">{label}</span>
+            <span class="flex-1 break-all font-mono text-xs">{value}</span>
+            <Icon name="arrow-up-right" class="text-subtle opacity-0 transition-opacity group-hover:opacity-100" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>

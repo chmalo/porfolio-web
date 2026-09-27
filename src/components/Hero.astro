@@ -1,0 +1,110 @@
+---
+import { profile } from "@/lib/profile";
+import Icon from "./Icon.astro";
+---
+
+<section
+  id="inicio"
+  class="relative flex min-h-svh items-center overflow-hidden pt-20 pb-16"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--accent-soft),transparent_55%)] opacity-60"
+  ></div>
+
+  <div class="mx-auto w-full max-w-5xl px-6">
+    <div class="mb-6 inline-flex items-center gap-2 rounded bg-accent/10 border border-accent/30 px-3 py-1 text-xs font-mono text-accent">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+      </span>
+      {profile.availability}
+    </div>
+
+    <h1 class="text-4xl font-extrabold uppercase tracking-tight text-foreground sm:text-6xl md:text-7xl font-mono leading-[1.05]">
+      Full—Stack &amp;<br />
+      <span class="text-accent">Team Lead.</span>
+    </h1>
+
+    <div class="mt-5 flex flex-wrap gap-2 font-mono text-xs">
+      <span class="rounded border border-border bg-surface px-2.5 py-1 text-foreground">PHP 8.2 / LARAVEL</span>
+      <span class="rounded border border-border bg-surface px-2.5 py-1 text-foreground">REACT 18</span>
+      <span class="rounded border border-border bg-surface px-2.5 py-1 text-foreground">DOMAIN-DRIVEN DESIGN</span>
+      <span class="rounded border border-accent/40 bg-accent/10 px-2.5 py-1 text-accent font-semibold">BANKING-GRADE STANDARDS</span>
+    </div>
+
+    <p class="mt-6 max-w-2xl text-base leading-relaxed text-muted">
+      Soy <strong class="text-foreground">{profile.name}</strong>. Más de 6 años liderando el desarrollo de sistemas ERP empresariales multi-tenant y soluciones bancarias de alta criticidad en América Latina. Especializado en modernizar cores legados hacia Arquitectura Hexagonal y crear interfaces reactivas en React y TypeScript.
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a
+        href="#contacto"
+        class="inline-flex h-11 items-center gap-2 rounded bg-accent px-6 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
+      >
+        Iniciar Conversación
+        <Icon name="arrow-up-right" />
+      </a>
+      <a
+        href="#proyectos"
+        class="inline-flex h-11 items-center gap-2 rounded border border-border bg-surface px-6 text-xs font-mono font-medium transition-colors hover:border-accent hover:text-accent"
+      >
+        Explorar Proyectos
+      </a>
+      <a
+        href={profile.cvUrl}
+        download
+        class="inline-flex h-11 items-center gap-2 rounded border border-border px-5 text-xs font-mono text-muted transition-colors hover:border-foreground hover:text-foreground"
+      >
+        <Icon name="download" />
+        Descargar CV
+      </a>
+      <div class="ml-1 flex items-center gap-1">
+        <a
+          href={profile.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de GitHub"
+          class="inline-flex h-10 w-10 items-center justify-center rounded border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+        >
+          <Icon name="github" />
+        </a>
+        <a
+          href={profile.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de LinkedIn"
+          class="inline-flex h-10 w-10 items-center justify-center rounded border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+        >
+          <Icon name="linkedin" />
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
+      <div class="p-4 rounded border border-border bg-surface/70 transition-colors hover:border-accent/50">
+        <span class="text-subtle block text-[10px] mb-1 uppercase tracking-wider">Métrica 01</span>
+        <div class="text-2xl font-bold text-foreground mb-1">6+ AÑOS</div>
+        <p class="text-muted text-[11px] font-sans">Sistemas ERP empresariales en producción para toda Latinoamérica.</p>
+      </div>
+
+      <div class="p-4 rounded border border-border bg-surface/70 transition-colors hover:border-accent/50">
+        <span class="text-subtle block text-[10px] mb-1 uppercase tracking-wider">Auditoría</span>
+        <div class="text-2xl font-bold text-accent mb-1">BANCA CORP.</div>
+        <p class="text-muted text-[11px] font-sans">Líder técnico en mesa de importante banco corporativo en Panamá.</p>
+      </div>
+
+      <div class="p-4 rounded border border-border bg-surface/70 transition-colors hover:border-accent/50">
+        <span class="text-subtle block text-[10px] mb-1 uppercase tracking-wider">Arquitectura</span>
+        <div class="text-2xl font-bold text-foreground mb-1">DDD &amp; HEX</div>
+        <p class="text-muted text-[11px] font-sans">Aislamiento de dominio, pruebas TDD/BDD y cero deuda técnica.</p>
+      </div>
+
+      <div class="p-4 rounded border border-border bg-surface/70 transition-colors hover:border-accent/50">
+        <span class="text-subtle block text-[10px] mb-1 uppercase tracking-wider">Frontend Core</span>
+        <div class="text-2xl font-bold text-foreground mb-1">VUE ➔ REACT</div>
+        <p class="text-muted text-[11px] font-sans">Migración de portal de compras empresarial sin tiempo de inactividad.</p>
+      </div>
+    </div>
+  </div>
+</section>

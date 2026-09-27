@@ -1,0 +1,301 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { profile, projects } from "@/lib/profile";
+import Icon from "@/components/Icon.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const siteUrl = Astro.site ?? new URL("https://christianfernandez.dev");
+const projectCanonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: `${project.title} — ${project.tagline}`,
+  description: project.description,
+  url: projectCanonicalURL,
+  author: {
+    "@type": "Person",
+    name: profile.name,
+    url: siteUrl.toString(),
+  },
+  keywords: project.tags.join(", "),
+};
+---
+
+<Layout
+  title={`${project.title} — Arquitectura y Detalles | ${profile.name}`}
+  description={project.metaDescription ?? project.description}
+  ogType="article"
+  image={project.image ?? "/og-image.png"}
+  schema={projectSchema}
+>
+  <div class="min-h-screen bg-background text-foreground">
+    <header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+      <div class="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
+        <a
+          href="/#proyectos"
+          class="group inline-flex items-center gap-2 text-xs font-mono text-muted transition-colors hover:text-foreground"
+        >
+          <span class="transition-transform group-hover:-translate-x-1">←</span>
+          <span>Volver al inicio</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded border border-border px-3 py-1 text-xs font-mono transition-colors hover:border-foreground"
+            >
+              <Icon name="github" class="h-4 w-4" />
+              <span>GitHub</span>
+            </a>
+          )}
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
+      <section class="border-b border-border pb-12 md:pb-16">
+        <div class="mb-6 flex flex-wrap items-center gap-3">
+          <span
+            class={`inline-flex items-center gap-1.5 rounded px-2.5 py-0.5 font-mono text-xs font-semibold ${
+              project.status === "Completado"
+                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                : "bg-accent/10 text-accent border border-accent/30"
+            }`}
+          >
+            <span
+              class={`h-1.5 w-1.5 rounded-full ${
+                project.status === "Completado"
+                  ? "bg-emerald-500"
+                  : "bg-accent animate-pulse"
+              }`}
+            ></span>
+            {project.status}
+          </span>
+
+          <span class="font-mono text-xs text-subtle">
+            Liderado por {profile.name}
+          </span>
+        </div>
+
+        <h1 class="text-3xl font-extrabold uppercase tracking-tight sm:text-5xl md:text-6xl font-mono text-foreground">
+          {project.title}
+        </h1>
+
+        <p class="mt-3 font-mono text-base font-semibold leading-relaxed text-accent md:text-xl">
+          {project.tagline}
+        </p>
+
+        <p class="mt-6 max-w-3xl text-sm leading-relaxed text-muted md:text-base">
+          {project.description}
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-10 items-center gap-2 rounded bg-accent px-5 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
+            >
+              <Icon name="github" />
+              <span>Explorar Repositorio</span>
+              <Icon name="arrow-up-right" />
+            </a>
+          )}
+
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-10 items-center gap-2 rounded border border-border bg-surface px-5 text-xs font-mono font-medium transition-colors hover:border-foreground"
+            >
+              <span>Ver sitio en vivo</span>
+              <Icon name="arrow-up-right" />
+            </a>
+          )}
+        </div>
+
+        <div class="mt-10">
+          <p class="mb-3 font-mono text-[11px] uppercase tracking-wider text-subtle">
+            Tecnologías y Patrones
+          </p>
+          <ul class="flex flex-wrap gap-2">
+            {project.tags.map((t) => (
+              <li
+                class="rounded border border-border bg-surface px-2.5 py-1 font-mono text-xs text-muted"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="border-b border-border py-12 md:py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          Ingeniería &amp; Límites de Dominio
+        </p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          Arquitectura del Sistema
+        </h2>
+
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
+          {project.architecture.summary}
+        </p>
+
+        {project.architecture.diagram && (
+          <div class="mt-8 overflow-hidden rounded-xl border border-border bg-surface/80 p-4 md:p-6">
+            <div class="mb-3 flex items-center justify-between border-b border-border/60 pb-3">
+              <span class="font-mono text-xs text-subtle">
+                Diagrama de flujo &amp; topología
+              </span>
+              <span class="font-mono text-xs text-accent">
+                {project.slug}.architecture
+              </span>
+            </div>
+            <pre class="overflow-x-auto font-mono text-xs leading-relaxed text-foreground md:text-sm">
+              <code>{project.architecture.diagram}</code>
+            </pre>
+          </div>
+        )}
+
+        <div class="mt-8">
+          <h3 class="text-base font-bold font-mono tracking-tight text-foreground">
+            Puntos Clave de la Arquitectura
+          </h3>
+          <ul class="mt-4 space-y-3">
+            {project.architecture.keyPoints.map((point) => (
+              <li
+                class="flex items-start gap-3 text-xs leading-relaxed text-muted font-sans"
+              >
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="border-b border-border py-12 md:py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          Ecosistema
+        </p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          Stack Tecnológico Detallado
+        </h2>
+
+        <div class="mt-8 overflow-hidden rounded-xl border border-border bg-surface/40">
+          <div class="grid grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
+            {project.techStack.map((item) => (
+              <div class="p-6">
+                <span class="font-mono text-[10px] uppercase tracking-wider text-accent font-bold">
+                  {item.layer}
+                </span>
+                <h3 class="mt-2 text-base font-bold tracking-tight text-foreground font-mono">
+                  {item.tech}
+                </h3>
+                <p class="mt-2 text-xs leading-relaxed text-muted font-sans">
+                  {item.purpose}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-border py-12 md:py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          Capacidades Operativas
+        </p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          Características Principales
+        </h2>
+
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {project.features.map((feature, idx) => (
+            <div
+              class="flex items-start gap-3.5 rounded-xl border border-border bg-background p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+            >
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-accent/10 font-mono text-xs font-bold text-accent">
+                0{idx + 1}
+              </span>
+              <p class="text-xs leading-relaxed text-muted">
+                {feature}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          Decisiones de Diseño
+        </p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          Resolución &amp; Enfoque Técnico
+        </h2>
+
+        <div class="mt-6 space-y-4">
+          {project.creationNotes.map((note) => (
+            <p
+              class="rounded-xl border border-border/80 bg-surface/50 p-5 text-sm leading-relaxed text-muted"
+            >
+              {note}
+            </p>
+          ))}
+        </div>
+
+        {project.githubUrl && (
+          <div class="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-surface p-6">
+            <div>
+              <h3 class="text-base font-bold tracking-tight text-foreground font-mono">
+                ¿Deseas examinar el repositorio?
+              </h3>
+              <p class="mt-1 text-xs text-muted">
+                El repositorio público contiene el historial de commits, pruebas y estructura modular.
+              </p>
+            </div>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-10 items-center gap-2 rounded bg-accent px-5 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
+            >
+              <Icon name="github" />
+              <span>Explorar en GitHub</span>
+              <Icon name="arrow-up-right" />
+            </a>
+          </div>
+        )}
+      </section>
+    </main>
+
+    <footer class="border-t border-border py-8 text-center text-xs font-mono text-muted">
+      <div class="mx-auto max-w-5xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© {currentYear} {profile.name}. Todos los derechos reservados.</p>
+        <a
+          href="/#proyectos"
+          class="text-muted hover:text-foreground transition-colors"
+        >
+          ← Volver a todos los proyectos
+        </a>
+      </div>
+    </footer>
+  </div>
+</Layout>

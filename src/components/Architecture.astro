@@ -1,0 +1,69 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section
+  id="arquitectura"
+  eyebrow="02 — Metodología & Diseño"
+  title="Filosofía de Arquitectura de Software"
+>
+  <p class="mb-10 max-w-2xl text-[15px] leading-relaxed text-muted">
+    La escalabilidad y la confiabilidad operativa de un sistema nacen del desacoplamiento estricto, la claridad de los límites del dominio y una cultura de pruebas automatizadas que previene regresiones.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="flex flex-col justify-between rounded-xl border border-border bg-surface/50 p-6 transition-colors hover:border-accent/40">
+      <div>
+        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent">
+          01
+        </div>
+        <h3 class="text-lg font-bold tracking-tight text-foreground mb-2">
+          Domain-Driven Design (DDD)
+        </h3>
+        <p class="text-xs leading-relaxed text-muted mb-6">
+          Aislamiento total de las reglas de negocio respecto a frameworks y bases de datos. Entidades ricas, Value Objects inmutables, Agregados consistentes y Casos de Uso atómicos.
+        </p>
+      </div>
+
+      <div class="rounded border border-border/80 bg-background/80 p-3 font-mono text-[11px] text-muted">
+        <span class="text-accent font-semibold">Capas:</span> Domain ➔ Application ➔ Infrastructure
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-between rounded-xl border border-border bg-surface/50 p-6 transition-colors hover:border-accent/40">
+      <div>
+        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent">
+          02
+        </div>
+        <h3 class="text-lg font-bold tracking-tight text-foreground mb-2">
+          Testing &amp; Calidad Continua
+        </h3>
+        <p class="text-xs leading-relaxed text-muted mb-6">
+          Desarrollo guiado por pruebas (TDD/BDD). Cobertura de casos de uso con PHPUnit, especificación de comportamiento con Behat, pruebas de regresión E2E con Playwright y análisis estático con PHPStan.
+        </p>
+      </div>
+
+      <div class="rounded border border-border/80 bg-background/80 p-3 font-mono text-[11px] text-muted">
+        <span class="text-accent font-semibold">Tooling:</span> PHPUnit · PHPStan · Behat · Playwright
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-between rounded-xl border border-border bg-surface/50 p-6 transition-colors hover:border-accent/40">
+      <div>
+        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent">
+          03
+        </div>
+        <h3 class="text-lg font-bold tracking-tight text-foreground mb-2">
+          Frontend Tipado &amp; Reactivo
+        </h3>
+        <p class="text-xs leading-relaxed text-muted mb-6">
+          Interfaces modernas en React 18 estructuradas por módulos de dominio. Tipado estricto con TypeScript de extremo a extremo, llamadas a API predecibles y UX optimizada sin dependencias superfluas.
+        </p>
+      </div>
+
+      <div class="rounded border border-border/80 bg-background/80 p-3 font-mono text-[11px] text-muted">
+        <span class="text-accent font-semibold">Stack:</span> React 18 · TypeScript · Vite · Tailwind
+      </div>
+    </div>
+  </div>
+</Section>

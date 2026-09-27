@@ -1,0 +1,41 @@
+---
+import { profile, softSkills } from "@/lib/profile";
+import Section from "./Section.astro";
+---
+
+<Section id="sobre-mi" eyebrow="01 — Perfil" title="Trayectoria & Enfoque">
+  <div class="grid gap-10 md:grid-cols-5">
+    <div class="space-y-4 md:col-span-3 text-base leading-relaxed text-muted">
+      <p>
+        {profile.summary}
+      </p>
+      <p class="text-sm text-subtle font-mono">
+        Ubicación: <span class="text-foreground">{profile.location}</span> · Idiomas: <span class="text-foreground">Español (Nativo) · Inglés (Básico, en mejora activa)</span>
+      </p>
+    </div>
+
+    <div class="md:col-span-2">
+      <div class="rounded-xl border border-border bg-surface/50 p-5 divide-y divide-border/60">
+        {profile.highlights.map((h) => (
+          <div class="py-3 first:pt-0 last:pb-0 flex items-baseline justify-between gap-4 font-mono">
+            <span class="text-xl font-bold text-accent">
+              {h.value}
+            </span>
+            <span class="text-xs text-muted text-right font-sans">{h.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <p class="mb-3 text-xs font-mono uppercase tracking-widest text-subtle">Competencias de Liderazgo &amp; Gestión</p>
+    <ul class="flex flex-wrap gap-2">
+      {softSkills.map((s) => (
+        <li class="rounded border border-border bg-surface px-3 py-1 font-mono text-xs text-muted">
+          {s}
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>
