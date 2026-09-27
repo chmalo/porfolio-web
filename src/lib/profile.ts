@@ -7,7 +7,6 @@ export const profile = {
     "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas web con TypeScript/Node.js, PHP/Laravel, React y Domain-Driven Design (DDD).",
   stack: "TypeScript/Node.js · PHP/Laravel · React · Python · DDD",
   location: "Sucre, Venezuela",
-  availability: "Disponible para nuevos proyectos / Trabajo remoto",
   email: "chmalo.f@gmail.com",
   phone: "+58 424 895 1914",
   phoneHref: "tel:+584248951914",
@@ -136,6 +135,8 @@ export type Project = {
   metaDescription?: string;
   image?: string;
   status: "Completado" | "En desarrollo" | "Producción";
+  isInternal?: boolean;
+  internalNote?: string;
   tags: string[];
   githubUrl?: string;
   secondaryGithubUrl?: { label: string; url: string };
@@ -149,80 +150,157 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "siscav",
-    title: "Siscav",
-    tagline: "Sistema de Gestión de Casos y Conflictos Educativos con WebSockets y 2FA",
+    slug: "moto-taxi-finance",
+    title: "Moto Taxi Finance",
+    tagline: "PWA Financiera Multi-Tenant con Liquidación Parametrizada, RLS y Tasa BCV",
     description:
-      "Plataforma institucional para la resolución y seguimiento de conflictos estudiantiles y laborales. Diseñada para alta confidencialidad y coordinación inmediata entre departamentos escolares, cuenta con autenticación de dos factores (2FA), control de acceso granular por permisos (RBAC), actualizaciones en tiempo real y generación de reportes en PDF y Excel.",
+      "Aplicación web progresiva (PWA) de finanzas operativas para conductores y propietarios en el sector de transporte en dos ruedas. Permite a los choferes registrar sus ingresos diarios en calle, conciliar gastos de combustible y alquiler al cierre del período, y automatizar el reparto transparente entre la ganancia neta del chofer y el fondo de mantenimiento preventivo ('Pote Moto').",
     metaDescription:
-      "Siscav — Sistema para instituciones educativas que gestiona casos de conflicto con Laravel, React, TypeScript y WebSockets.",
-    status: "Completado",
+      "Moto Taxi Finance — PWA financiera multi-tenant con Next.js, React 19, TypeScript, PostgreSQL RLS y Drizzle ORM.",
+    image: "/img/moto-taxi.png",
+    status: "Producción",
     tags: [
-      "Laravel",
-      "React",
+      "Next.js 16",
+      "React 19",
       "TypeScript",
-      "MariaDB",
-      "WebSockets",
-      "2FA Security",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Row-Level Security (RLS)",
+      "Better-Auth",
+      "PWA",
       "Tailwind CSS",
-      "Hexagonal Architecture",
     ],
-    githubUrl: "https://github.com/chmalo",
+    liveUrl: "https://moto-taxi-finance.vercel.app/",
+    githubUrl: "https://github.com/chmalo/moto-taxi-finance",
     architecture: {
       summary:
-        "Arquitectura desacoplada en capas guiada por el dominio con Laravel en el backend y React en el frontend. Implementa comunicación bidireccional mediante WebSockets para sincronización de estados y bitácora forense de casos.",
+        "Arquitectura modular orientada al dominio (package-by-feature) con aislamiento multi-tenant estricto mediante PostgreSQL Row-Level Security (RLS) en tiempo de ejecución, transacciones ACID con Drizzle ORM y contabilidad monetaria en enteros (minor units) para evitar errores de coma flotante.",
       keyPoints: [
-        "Aislamiento de la lógica de expediente escolar y transiciones de estado de casos dentro del dominio.",
-        "Autenticación segura en dos factores (2FA) y control RBAC con permisos atómicos por rol.",
-        "Eventos en tiempo real distribuidos mediante WebSockets para alertas de resolución instantánea.",
-        "Pipeline de exportación asíncrona de expedientes legales a PDF y Excel con almacenamiento seguro en la nube.",
+        "Aislamiento de datos por inquilino mediante políticas nativas de PostgreSQL RLS con SET LOCAL ROLE app_user dentro de cada transacción.",
+        "Diseño modular (package-by-feature) con separación limpia entre capas de dominio, aplicación e infraestructura.",
+        "Manejo de importes monetarios en unidades enteras (minor units) y sincronización programada con la tasa oficial BCV vía cron.",
+        "Autenticación segura multi-tenant con Better-Auth, sesiones firmadas y cifrado criptográfico Argon2.",
       ],
     },
     engineeringLessons: {
       challenge:
-        "Coordinar expedientes confidenciales y resoluciones de casos entre múltiples departamentos escolares sin riesgo de fuga de datos ni pérdida de trazabilidad temporal.",
+        "Garantizar la confidencialidad y aislamiento estricto de las cuentas de conductores en una arquitectura multi-tenant compartida sin encarecer la infraestructura en la nube.",
       decision:
-        "Implementé un modelo de permisos atómicos RBAC con autenticación de dos factores (2FA) forzosa y sincronización de eventos de resolución en tiempo real mediante WebSockets.",
+        "Implementé Row-Level Security (RLS) directamente en el motor PostgreSQL combinado con Drizzle ORM, delegando la regla de aislamiento a la base de datos para que sea imposible una fuga de datos entre inquilinos.",
       learned:
-        "En sistemas de alta sensibilidad, la seguridad y la auditoría forense no pueden ser un parche posterior: deben estar intrínsecas en el modelo de dominio desde el día uno.",
+        "En sistemas financieros multi-tenant, la seguridad no debe depender únicamente de cláusulas WHERE en el código de aplicación: las políticas RLS en base de datos actúan como un cortafuegos infranqueable.",
     },
     features: [
-      "Gestión integral de expedientes confidenciales con control granular de accesos por rol.",
-      "Autenticación de dos factores (2FA) para proteger la privacidad de la información estudiantil.",
-      "Actualizaciones y notificaciones en tiempo real sin recargar la interfaz mediante WebSockets.",
-      "Generación de reportes detallados en formatos PDF y Excel.",
-      "Almacenamiento y resguardo cifrado de evidencias documentales en la nube.",
+      "Registro ágil de carreras e ingresos diarios optimizado para interacción táctil en dispositivos móviles.",
+      "Motor de liquidación automático: cálculo de combustible, cuota de alquiler y reparto al 'Pote Moto'.",
+      "Integración automatizada con la tasa oficial de cambio del Banco Central de Venezuela (BCV).",
+      "Soporte PWA instalable con funcionamiento rápido y diseño responsivo adaptado al uso en campo.",
+      "Historial detallado de liquidaciones y balances de saldo por período.",
     ],
     techStack: [
       {
-        layer: "Backend Framework",
-        tech: "Laravel + PHP 8.2",
-        purpose: "Casos de uso, servicios de dominio, gestión de sesiones seguras y generación de reportes.",
+        layer: "Framework Full-Stack",
+        tech: "Next.js 16 (App Router) + React 19 + TypeScript",
+        purpose: "Renderizado eficiente, server actions seguras y tipado estricto de punta a punta.",
       },
       {
-        layer: "Frontend",
-        tech: "React + TypeScript + Tailwind CSS",
-        purpose: "Interfaz SPA tipada, accesible y reactiva a eventos en vivo.",
+        layer: "Base de Datos & ORM",
+        tech: "PostgreSQL (Neon) + Drizzle ORM",
+        purpose: "Persistencia relacional con migraciones declarativas y consultas tipadas.",
       },
       {
-        layer: "Tiempo Real",
-        tech: "WebSockets (Event Broadcast)",
-        purpose: "Transmisión bidireccional instantánea de estados de resolución y alertas.",
-      },
-      {
-        layer: "Base de Datos",
-        tech: "MariaDB",
-        purpose: "Persistencia relacional estructurada con integridad referencial estricta.",
+        layer: "Seguridad & Aislamiento",
+        tech: "PostgreSQL RLS + Better-Auth + Argon2",
+        purpose: "Aislamiento por tenant_id a nivel de base de datos y autenticación robusta.",
       },
       {
         layer: "Testing & Calidad",
-        tech: "PHPUnit + Playwright",
-        purpose: "Pruebas unitarias de reglas de negocio y pruebas E2E de flujos de casos.",
+        tech: "Vitest + Testcontainers",
+        purpose: "Pruebas de integración contra instancias reales de PostgreSQL en Docker.",
       },
     ],
     creationNotes: [
-      "Desarrollado para resolver la falta de trazabilidad y retrasos en la atención de casos sensibles en instituciones educativas.",
-      "La prioridad fundamental fue garantizar la confidencialidad absoluta mediante cifrado y auditoría inmutable de accesos.",
+      "Diseñado y desarrollado para solventar la falta de claridad en las liquidaciones diarias entre choferes y propietarios de motocicletas.",
+      "La aplicación se encuentra desplegada y en uso activo en producción.",
+    ],
+  },
+  {
+    slug: "indacsa",
+    title: "INDACSA — Planificación Agroindustrial",
+    tagline: "Sistema de Optimización y Programación de Procesamiento de Semilla Certificada",
+    description:
+      "Aplicación técnica interna diseñada para reemplazar la planificación manual en hojas de cálculo de INDACSA, empresa productora de semilla certificada para siembra. El sistema modela la recepción de grano crudo, la capacidad de procesado en cuatro centros de maquinaria especializada y el balanceo de inventarios, resolviendo la secuenciación de producción para minimizar tiempos muertos y costos de limpieza entre cambios de variedad.",
+    metaDescription:
+      "INDACSA — Sistema de planificación de procesado de semilla certificada con Laravel, Inertia, React 19, TypeScript y PostgreSQL.",
+    image: "/img/indacsa.png",
+    status: "Producción",
+    isInternal: true,
+    internalNote: "Sistema desplegado en infraestructura privada de planta / Intranet corporativa.",
+    tags: [
+      "Laravel 13",
+      "PHP 8.3",
+      "Inertia.js 3",
+      "React 19",
+      "TypeScript",
+      "PostgreSQL 17",
+      "Docker",
+      "Tailwind CSS 4",
+    ],
+    architecture: {
+      summary:
+        "Arquitectura desacoplada moderna con Laravel e Inertia.js sobre React 19 y TypeScript. Modela el dominio industrial de procesado de grano separando tres necesidades operativas (envasado, procesado y compras) y optimiza la programación semanal de maquinaria reduciendo paradas técnicas por limpieza.",
+      keyPoints: [
+        "Modelado de dominio industrial complejo: balanceo entre pedidos con fecha comprometida e inventario disponible de grano crudo y procesado.",
+        "Optimización de secuencias de maquinaria: algoritmo para programar los cuatro centros de procesado minimizando tiempos de limpieza entre variedades.",
+        "Arquitectura SPA con Server-Side Rendering (SSR) mediante Inertia.js 3 y React 19 sin la complejidad de una API REST separada.",
+        "Infraestructura contenerizada con Docker compuesta por cinco servicios orquestados (PHP HTTP, Vite SSR, PostgreSQL 17, workers y colas).",
+      ],
+    },
+    engineeringLessons: {
+      challenge:
+        "Reemplazar matrices de Excel consolidadas durante años por el personal de planta, donde el costo y tiempo de limpiar un centro de procesado entre variedades distintas condiciona la rentabilidad de todo el plan semanal.",
+      decision:
+        "Diseñé un motor de generación y comparación de escenarios productivos: el sistema permite simular diferentes alternativas de asignación de centros antes de convertir el escenario óptimo en el plan de producción semanal.",
+      learned:
+        "El software para plantas industriales debe modelar con fidelidad las restricciones físicas de la maquinaria; la usabilidad no es un adorno visual, sino la claridad con la que el operario visualiza el impacto de cada decisión de programación.",
+    },
+    features: [
+      "Cálculo encadenado de necesidades: grano a envasar, grano a procesar y grano a comprar.",
+      "Programación visual y asignación de carga de trabajo para 4 centros de procesado de semilla.",
+      "Simulación y comparación de escenarios semanales considerando horas de limpieza por cambio de variedad.",
+      "Trazabilidad de recepción de grano en camión y seguimiento de lotes procesados.",
+      "Gestión de usuarios y accesos por perfiles de planta.",
+    ],
+    techStack: [
+      {
+        layer: "Backend",
+        tech: "Laravel 13 + PHP 8.3",
+        purpose: "Lógica de negocio, reglas de dominio de planta, migraciones y colas de tareas.",
+      },
+      {
+        layer: "Frontend & SSR",
+        tech: "Inertia.js 3 + React 19 + TypeScript + Tailwind 4",
+        purpose: "Interfaz SPA reactiva, moderna y con tipado estricto.",
+      },
+      {
+        layer: "Base de Datos",
+        tech: "PostgreSQL 17",
+        purpose: "Motor relacional de alto rendimiento para el histórico de producción y lotes.",
+      },
+      {
+        layer: "Contenedores",
+        tech: "Docker + Docker Compose",
+        purpose: "Entorno industrial homogéneo con procesos dedicados para HTTP, Vite, SSR y colas.",
+      },
+      {
+        layer: "Calidad & Testing",
+        tech: "Pest + PHPStan + ESLint",
+        purpose: "Análisis estático riguroso y pruebas de comportamiento en frontend y backend.",
+      },
+    ],
+    creationNotes: [
+      "Desarrollado para la optimización de procesos de planta en INDACSA bajo rigurosa especificación de dominio.",
+      "El sistema opera en infraestructura interna de la compañía; el código y los datos de producción se mantienen bajo confidencialidad industrial.",
     ],
   },
   {
@@ -234,7 +312,7 @@ export const projects: Project[] = [
     metaDescription:
       "Poultry Track — Sistema de gestión integral para granjas avícolas con Laravel, React, TypeScript y PostgreSQL.",
     image: "/img/poultry-track.png",
-    status: "Producción",
+    status: "En desarrollo",
     tags: [
       "Laravel",
       "React",
@@ -295,76 +373,6 @@ export const projects: Project[] = [
     creationNotes: [
       "Nació para resolver los desajustes de costos e inventario en granjas de familiares y amigos del sector avícola.",
       "Aplica el enfoque de Clean Architecture para permitir que las reglas de negocio biológicas y contables permanezcan aisladas del framework.",
-    ],
-  },
-  {
-    slug: "medine-erp-portal",
-    title: "Medine ERP — Portal de Compras & Modernización",
-    tagline: "Migración de Vue a React y Modernización Arquitectónica Hexagonal",
-    description:
-      "Caso de estudio técnico sobre la modernización del portal de compras y optimización de reportes críticos en un sistema ERP empresarial para Pensanómica en Panamá.",
-    metaDescription:
-      "Modernización de ERP en Medine.tech — Migración de Vue a React y arquitectura hexagonal en Laravel con PHP 8.2.",
-    status: "Producción",
-    tags: [
-      "PHP 8.2",
-      "Laravel",
-      "React 18",
-      "Vue.js",
-      "Hexagonal Architecture",
-      "MySQL",
-      "Optimization",
-    ],
-    liveUrl: "https://medine.tech",
-    architecture: {
-      summary:
-        "Reestructuración progresiva de módulos monolíticos heredados hacia Arquitectura Hexagonal y migración completa del portal de compras desde Vue.js hacia una SPA en React 18 con TypeScript.",
-      keyPoints: [
-        "Desacoplamiento de controladores saturados mediante la introducción de puertos, adaptadores y casos de uso.",
-        "Optimización de consultas SQL complejas en MySQL, reduciendo el tiempo de generación de reportes de horas a segundos.",
-        "Migración frontend fluida sin interrupción operativa para las empresas clientes.",
-        "Implementación de buenas prácticas bajo estándares Codely y control de calidad con PHPStan.",
-      ],
-    },
-    engineeringLessons: {
-      challenge:
-        "Reemplazar un portal de compras legado en Vue y refactorizar controladores monolíticos mientras empresas operaban transacciones reales en simultáneo.",
-      decision:
-        "Apliqué el patrón Strangler Fig: migración incremental por pantallas con contratos tipados en TypeScript y adaptadores REST para convivir con los endpoints legados hasta completar la transición a React 18.",
-      learned:
-        "Una migración técnica exitosa no se juzga por lo novedoso del stack, sino por su invisibilidad operativa para los usuarios que dependen del sistema para facturar.",
-    },
-    features: [
-      "Portal de compras modernizado en React 18 con validaciones en tiempo real y UX fluida.",
-      "Módulo de reportes contables e inventario optimizado para procesar grandes volúmenes transaccionales.",
-      "Módulos desacoplados y testeados bajo arquitectura hexagonal con PHPUnit.",
-      "Integración continua y estándares de calidad para clientes corporativos de alta demanda.",
-    ],
-    techStack: [
-      {
-        layer: "Backend Framework",
-        tech: "Laravel + PHP 8.2",
-        purpose: "Arquitectura hexagonal, microservicios internos y optimización de procesamiento.",
-      },
-      {
-        layer: "Frontend Modernizado",
-        tech: "React 18 + TypeScript",
-        purpose: "Reemplazo de la interfaz legacy en Vue con arquitectura de componentes reutilizables.",
-      },
-      {
-        layer: "Bases de Datos",
-        tech: "MySQL",
-        purpose: "Almacenamiento relacional con índices de alto rendimiento para contabilidad y compras.",
-      },
-      {
-        layer: "Calidad de Código",
-        tech: "PHPStan + PHPUnit",
-        purpose: "Análisis estático de tipos y cobertura de pruebas de regresión.",
-      },
-    ],
-    creationNotes: [
-      "Representó uno de los mayores hitos de ingeniería en Medine.tech: eliminar la deuda técnica sin detener la operación de las empresas clientes.",
-      "Los estándares de confiabilidad implementados aquí fueron clave para asegurar la estabilidad operativa del software en Panamá.",
     ],
   },
 ];

@@ -2,91 +2,155 @@
 import { profile } from "@/lib/profile";
 import Icon from "./Icon.astro";
 import Section from "./Section.astro";
-
-type ContactItem = {
-  label: string;
-  value: string;
-  href: string;
-  iconName: "mail" | "phone" | "linkedin" | "github";
-  external?: boolean;
-};
-
-const links: ContactItem[] = [
-  {
-    label: "Email",
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    iconName: "mail",
-  },
-  {
-    label: "Teléfono",
-    value: profile.phone,
-    href: profile.phoneHref,
-    iconName: "phone",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/christian-fernandez-dev",
-    href: profile.social.linkedin,
-    iconName: "linkedin",
-    external: true,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/chmalo",
-    href: profile.social.github,
-    iconName: "github",
-    external: true,
-  },
-];
 ---
 
 <Section id="contacto" eyebrow="06 — Contacto" title="Canales Directos & Conversación">
-  <div class="grid gap-12 md:grid-cols-5">
-    <div class="md:col-span-2">
-      <p class="text-sm leading-relaxed text-muted">
-        ¿Tienes una propuesta, vacante en mente o buscas sumar un desarrollador full-stack a tu equipo? Escríbeme directamente o contáctame por cualquiera de mis canales oficiales.
-      </p>
+  <div class="mb-10 max-w-2xl">
+    <p class="text-[15px] leading-relaxed text-muted">
+      ¿Tienes una propuesta técnica, vacante en mente o buscas incorporar un desarrollador full-stack a tu equipo? Escríbeme directamente o comunícate a través de cualquiera de mis canales oficiales.
+    </p>
+  </div>
 
-      <div class="mt-6 rounded-xl border border-border bg-surface/50 p-5 space-y-3 font-mono text-xs">
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-subtle">Disponibilidad:</span>
-          <span class="text-accent font-semibold">Inmediata / Remoto</span>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="group relative flex flex-col justify-between rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-200 hover:border-accent/40 hover:bg-surface sm:col-span-2">
+      <div>
+        <div class="flex items-center justify-between">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background text-accent shadow-xs">
+            <Icon name="mail" class="h-5 w-5" />
+          </div>
+          <span class="rounded border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[11px] font-semibold text-accent">
+            Canal Principal
+          </span>
         </div>
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-subtle">Ubicación:</span>
-          <span class="text-foreground">{profile.location}</span>
-        </div>
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-subtle">Zona Horaria:</span>
-          <span class="text-foreground">UTC-4 (EST compatible)</span>
-        </div>
+        <h3 class="mt-4 font-mono text-base font-bold text-foreground">
+          Correo Electrónico
+        </h3>
+        <p class="mt-1 font-mono text-xs text-muted break-all">
+          {profile.email}
+        </p>
+        <p class="mt-3 text-xs leading-relaxed text-subtle">
+          Respondo consultas técnicas y propuestas profesionales habitualmente en menos de 24 horas.
+        </p>
       </div>
 
-      <a
-        href={`mailto:${profile.email}`}
-        class="mt-6 inline-flex h-11 items-center gap-2 rounded bg-accent px-6 text-xs font-mono font-bold uppercase text-white dark:text-neutral-950 transition-colors hover:bg-accent-strong"
-      >
-        Enviar Correo Directo
-        <Icon name="arrow-up-right" />
-      </a>
+      <div class="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-border/80">
+        <a
+          href={`mailto:${profile.email}`}
+          class="inline-flex h-9 items-center gap-2 rounded bg-accent px-4 font-mono text-xs font-bold uppercase text-white dark:text-neutral-950 transition-colors hover:bg-accent-strong"
+        >
+          <span>Escribir Correo</span>
+          <Icon name="arrow-up-right" class="h-3.5 w-3.5" />
+        </a>
+        <button
+          type="button"
+          id="copy-email-btn"
+          data-email={profile.email}
+          class="inline-flex h-9 items-center gap-1.5 rounded border border-border bg-background px-3 font-mono text-xs text-muted transition-colors hover:border-accent hover:text-accent"
+        >
+          <span id="copy-email-label">Copiar email</span>
+        </button>
+      </div>
     </div>
-    <ul class="divide-y divide-border border-y border-border md:col-span-3">
-      {links.map(({ label, value, href, iconName, external }) => (
-        <li>
-          <a
-            href={href}
-            target={external ? "_blank" : undefined}
-            rel={external ? "noopener noreferrer" : undefined}
-            class="group flex items-center gap-4 py-4 transition-colors hover:text-accent"
-          >
-            <Icon name={iconName} class="text-subtle transition-colors group-hover:text-accent" />
-            <span class="w-24 font-mono text-xs text-subtle">{label}</span>
-            <span class="flex-1 break-all font-mono text-xs">{value}</span>
-            <Icon name="arrow-up-right" class="text-subtle opacity-0 transition-opacity group-hover:opacity-100" />
-          </a>
-        </li>
-      ))}
-    </ul>
+
+    <a
+      href={profile.social.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group flex flex-col justify-between rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-200 hover:border-accent/40 hover:bg-surface"
+    >
+      <div>
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background text-accent shadow-xs">
+          <Icon name="linkedin" class="h-5 w-5" />
+        </div>
+        <h3 class="mt-4 font-mono text-base font-bold text-foreground transition-colors group-hover:text-accent">
+          LinkedIn
+        </h3>
+        <p class="mt-1 font-mono text-xs text-muted">
+          /in/christian-fernandez-dev
+        </p>
+        <p class="mt-3 text-xs leading-relaxed text-subtle">
+          Perfil profesional, trayectoria y recomendaciones verificadas.
+        </p>
+      </div>
+      <div class="mt-6 flex items-center justify-between border-t border-border/80 pt-4 font-mono text-xs text-accent">
+        <span>Conectar</span>
+        <Icon name="arrow-up-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </div>
+    </a>
+
+    <a
+      href={profile.social.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group flex flex-col justify-between rounded-2xl border border-border bg-surface/50 p-6 transition-all duration-200 hover:border-accent/40 hover:bg-surface"
+    >
+      <div>
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background text-accent shadow-xs">
+          <Icon name="github" class="h-5 w-5" />
+        </div>
+        <h3 class="mt-4 font-mono text-base font-bold text-foreground transition-colors group-hover:text-accent">
+          GitHub
+        </h3>
+        <p class="mt-1 font-mono text-xs text-muted">
+          github.com/chmalo
+        </p>
+        <p class="mt-3 text-xs leading-relaxed text-subtle">
+          Repositorios, arquitectura modular y commits en proyectos reales.
+        </p>
+      </div>
+      <div class="mt-6 flex items-center justify-between border-t border-border/80 pt-4 font-mono text-xs text-accent">
+        <span>Ver código</span>
+        <Icon name="arrow-up-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </div>
+    </a>
+  </div>
+
+  <div class="mt-6 flex flex-col items-start justify-between gap-4 rounded-2xl border border-border/80 bg-surface/30 p-5 sm:flex-row sm:items-center">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-subtle">
+      <span class="inline-flex items-center gap-2">
+        <Icon name="map-pin" class="h-3.5 w-3.5 text-accent" />
+        <span class="text-foreground">{profile.location}</span>
+      </span>
+      <span>·</span>
+      <span>Zona horaria: <span class="text-foreground">UTC-4 (EST compatible)</span></span>
+      <span>·</span>
+      <span>Tel: <a href={profile.phoneHref} class="text-foreground hover:text-accent hover:underline">{profile.phone}</a></span>
+    </div>
+
+    <a
+      href={profile.cvUrl}
+      download
+      class="inline-flex h-9 items-center gap-2 rounded border border-border bg-background px-4 font-mono text-xs text-foreground transition-colors hover:border-accent hover:text-accent"
+    >
+      <Icon name="download" class="h-3.5 w-3.5" />
+      <span>Descargar CV</span>
+    </a>
   </div>
 </Section>
+
+<script>
+  function initContactCopy() {
+    const btn = document.getElementById("copy-email-btn");
+    const label = document.getElementById("copy-email-label");
+    if (!btn || !label) return;
+
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-email");
+      if (!email) return;
+      try {
+        await navigator.clipboard.writeText(email);
+        const originalText = label.textContent;
+        label.textContent = "¡Copiado!";
+        btn.classList.add("border-accent", "text-accent");
+        setTimeout(() => {
+          label.textContent = originalText;
+          btn.classList.remove("border-accent", "text-accent");
+        }, 2000);
+      } catch {}
+    });
+  }
+
+  initContactCopy();
+  document.addEventListener("astro:after-swap", initContactCopy);
+  document.addEventListener("astro:page-load", initContactCopy);
+</script>
