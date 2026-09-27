@@ -1,8 +1,8 @@
 export const profile = {
   name: "Christian Fernández",
-  role: "Senior Full-Stack Developer",
+  role: "Desarrollador Full-Stack",
   headline:
-    "Senior Full-Stack Developer | Sistemas ERP & Transaccionales · PHP/Laravel · React · DDD",
+    "Desarrollador Full-Stack | Sistemas ERP & Transaccionales · PHP/Laravel · React · DDD",
   valueProposition:
     "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas transaccionales de alta criticidad con PHP/Laravel, React y Arquitectura Hexagonal. Disponible como B2B Contractor con solapamiento EST.",
   stack: "PHP/Laravel · React · Domain-Driven Design (DDD)",
@@ -45,7 +45,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Desarrollador Full-Stack Senior",
+    role: "Desarrollador Full-Stack",
     company: "Medine.tech",
     period: "Jun 2020 — Ago 2026 (6 años)",
     current: true,
@@ -72,7 +72,7 @@ export type Company = {
 export const companies: Company[] = [
   {
     name: "Medine.tech",
-    role: "Desarrollador Full-Stack Senior",
+    role: "Desarrollador Full-Stack",
     period: "2020 — 2026",
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-[#090a0c]",
