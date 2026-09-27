@@ -4,7 +4,7 @@ export const profile = {
   headline:
     "Full-Stack Engineer | Sistemas ERP, APIs & Arquitectura de Software",
   valueProposition:
-    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas web con TypeScript/Node.js, PHP/Laravel, React y Domain-Driven Design (DDD).",
+    "Desarrollador Full-Stack enfocado en sistemas ERP empresariales, APIs robustas y plataformas web con TypeScript, PHP/Laravel, React y Domain-Driven Design.",
   stack: "TypeScript/Node.js · PHP/Laravel · React · Python · DDD",
   location: "Sucre, Venezuela",
   email: "chmalo.f@gmail.com",
