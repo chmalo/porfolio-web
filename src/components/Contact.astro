@@ -45,8 +45,24 @@ const links: ContactItem[] = [
   <div class="grid gap-12 md:grid-cols-5">
     <div class="md:col-span-2">
       <p class="text-sm leading-relaxed text-muted">
-        Disponible para evaluar posiciones Senior Full-Stack Developer, Team Lead o consultoría técnica de arquitectura en Laravel y React.
+        Disponible para contratación remota como Senior Full-Stack Developer bajo modalidad B2B Contractor o nómina internacional.
       </p>
+
+      <div class="mt-4 rounded-xl border border-border bg-surface/50 p-4 space-y-2 font-mono text-xs">
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-subtle">Modalidad:</span>
+          <span class="text-foreground text-right">{profile.contractor.modality}</span>
+        </div>
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-subtle">Zona Horaria:</span>
+          <span class="text-foreground text-right">{profile.contractor.timezone}</span>
+        </div>
+        <div class="flex items-start justify-between gap-2">
+          <span class="text-subtle">Facturación:</span>
+          <span class="text-accent text-right">{profile.contractor.billing}</span>
+        </div>
+      </div>
+
       <a
         href={`mailto:${profile.email}`}
         class="mt-6 inline-flex h-10 items-center gap-2 rounded bg-accent px-5 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"

@@ -1,13 +1,18 @@
 export const profile = {
   name: "Christian Fernández",
-  role: "Desarrollador Full-Stack & Team Lead",
+  role: "Senior Full-Stack Developer",
   headline:
-    "Senior Full-Stack & Team Lead | PHP/Laravel · React · Domain-Driven Design (DDD)",
+    "Senior Full-Stack Developer | Sistemas ERP & Transaccionales · PHP/Laravel · React · DDD",
   valueProposition:
-    "Ayudo a empresas a escalar sistemas transaccionales de alta criticidad, modernizar arquitecturas heredadas y eliminar deuda técnica con código limpio, testeable y estándares bancarios.",
+    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas transaccionales de alta criticidad con PHP/Laravel, React y Arquitectura Hexagonal. Disponible como B2B Contractor con solapamiento EST.",
   stack: "PHP/Laravel · React · Domain-Driven Design (DDD)",
   location: "Sucre, Venezuela",
-  availability: "Disponible para trabajo remoto / Nuevos retos",
+  availability: "Disponible para contratación remota / B2B Contractor (Solapamiento EST)",
+  contractor: {
+    modality: "B2B Contractor / Remoto Full-time",
+    timezone: "UTC-4 (Solapamiento directo con Costa Este EE. UU. / EST)",
+    billing: "Facturación internacional en USD / Inicio inmediato",
+  },
   email: "chmalo.f@gmail.com",
   phone: "+58 424 895 1914",
   phoneHref: "tel:+584248951914",
@@ -19,11 +24,11 @@ export const profile = {
     github: "https://github.com/chmalo",
   },
   summary:
-    "Soy Christian Fernández. Llevo más de 6 años en la trinchera del desarrollo de software, diseñando, construyendo y manteniendo sistemas ERP empresariales multi-tenant y plataformas web transaccionales para empresas en América Latina. No creo en escribir código por inercia ni en soluciones mágicas: me especializo en intervenir sistemas con alta deuda técnica para transformarlos en arquitecturas desacopladas, testeables y fáciles de evolucionar mediante Domain-Driven Design (DDD) y Arquitectura Hexagonal. Como Team Lead, dirigí la mesa técnica asignada a un banco corporativo en Panamá bajo estrictos estándares de seguridad bancaria, y lideré la migración del portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 clientes corporativos.",
+    "Soy Christian Fernández. Llevo más de 6 años desarrollando y manteniendo sistemas ERP empresariales multi-tenant y plataformas web transaccionales en producción para empresas de América Latina. Me especializo en construir y modernizar software de gestión donde la consistencia de los datos, la facturación y el inventario son críticos. Trabajo con PHP/Laravel y React aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal para desacoplar las reglas de negocio del framework y permitir que el sistema evolucione sin acumular deuda técnica. En Medine.tech formé parte de la mesa técnica asignada a un banco corporativo en Panamá bajo estrictos estándares de seguridad bancaria, optimicé consultas de reportes reduciendo tiempos de minutos a segundos y migré el portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 empresas clientes.",
   philosophy:
-    "El buen software no se mide por la cantidad de líneas escritas, sino por lo fácil que resulta adaptarlo cuando las reglas de negocio cambian. Construyo con mentalidad de producto: código testeable, dominio aislado del framework y comunicación directa entre directores de negocio y el equipo de ingeniería.",
+    "El buen software resuelve problemas de negocio reales y tolera el cambio. Priorizo código limpio y testeable, modelos de dominio que reflejen la realidad operativa de la empresa y una comunicación directa y transparente con los equipos de producto.",
   highlights: [
-    { value: "6+", label: "años en producción real" },
+    { value: "6+", label: "años construyendo en producción" },
     { value: "Banca Corp.", label: "mesa técnica en Panamá" },
     { value: "DDD & Hexagonal", label: "arquitectura desacoplada" },
     { value: "Vue ➔ React", label: "migración con cero downtime" },
@@ -40,16 +45,16 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Desarrollador Full-Stack y Team Lead",
+    role: "Desarrollador Full-Stack Senior",
     company: "Medine.tech",
     period: "Jun 2020 — Ago 2026 (6 años)",
     current: true,
     bullets: [
-      "<strong>Dirigí la mesa técnica asignada a un banco corporativo en Panamá:</strong> lideré al equipo de desarrollo resolviendo incidencias críticas y entregando evolutivos con cero observaciones de seguridad o fallos en auditorías bancarias.",
+      "<strong>Desarrollo en la mesa técnica de un banco corporativo en Panamá:</strong> atendí y resolví incidencias operativas de alta criticidad, implementando mejoras continuas bajo rigurosos controles de seguridad y auditoría bancaria.",
       "<strong>Optimicé el motor de reportes contables e inventario:</strong> reduje los tiempos de generación de minutos a segundos para más de 100 empresas clientes en Latinoamérica, reestructurando índices y consultas complejas en PostgreSQL.",
-      "<strong>Lideré la migración del portal de compras empresarial:</strong> migré la plataforma desde Vue hacia una SPA en React 18 con TypeScript sin un solo minuto de interrupción de servicio para los clientes corporativos, acelerando el ciclo de entrega de nuevas funciones.",
-      "<strong>Modernicé el núcleo transaccional del ERP:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework y erradicando deuda técnica acumulada.",
-      "<strong>Instauré estándares rigurosos de calidad de código:</strong> implementé pipelines de análisis estático con PHPStan y cobertura de pruebas automatizadas con PHPUnit y Playwright, minimizando regresiones en entornos productivos.",
+      "<strong>Lideré la migración técnica del portal de compras:</strong> migré la plataforma desde Vue hacia una SPA en React 18 con TypeScript sin interrumpir la operación continua de los clientes corporativos, acelerando el ciclo de entrega de nuevas funciones.",
+      "<strong>Modernicé el núcleo transaccional del ERP:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework y reduciendo la deuda técnica acumulada.",
+      "<strong>Implementé testing automatizado y calidad estática:</strong> introduje análisis con PHPStan y cobertura de pruebas con PHPUnit y Playwright para asegurar despliegues confiables y prevenir regresiones en producción.",
     ],
   },
 ];
@@ -67,7 +72,7 @@ export type Company = {
 export const companies: Company[] = [
   {
     name: "Medine.tech",
-    role: "Full-Stack & Team Lead",
+    role: "Desarrollador Full-Stack Senior",
     period: "2020 — 2026",
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-[#090a0c]",
@@ -77,12 +82,12 @@ export const companies: Company[] = [
   },
   {
     name: "Cliente Bancario Corporativo",
-    role: "Líder de Desarrollo asignado",
+    role: "Desarrollador en Mesa Corporativa",
     period: "Mesa Panamá",
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-neutral-900",
     description:
-      "Liderazgo técnico en la mesa asignada de un banco corporativo en Panamá, con entregas bajo rigurosos estándares de seguridad y calidad bancaria.",
+      "Desarrollo y soporte técnico en la mesa asignada a un banco corporativo en Panamá, con entregas bajo rigurosos estándares de seguridad y calidad bancaria.",
   },
 ];
 
