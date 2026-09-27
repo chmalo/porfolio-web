@@ -243,6 +243,47 @@ const projectSchema = {
         </div>
       </section>
 
+      <section class="border-b border-border py-12 md:py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          Ingeniería Real &amp; Aprendizaje
+        </p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          Retos Técnicos &amp; Lecciones Aprendidas
+        </h2>
+        <p class="mt-3 max-w-2xl text-xs font-mono text-muted">
+          Decisiones de arquitectura tomadas bajo presión operativa y el criterio destilado en producción.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="rounded-xl border border-rose-500/20 bg-rose-500/5 p-6 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-rose-400 font-bold block mb-2">01 / El Reto Crítico</span>
+              <h3 class="font-mono text-sm font-bold text-foreground mb-3">Complejidad Operativa</h3>
+              <p class="text-xs leading-relaxed text-muted font-sans">{project.engineeringLessons.challenge}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-rose-500/20 text-[10px] font-mono text-rose-400">Punto de tensión</div>
+          </div>
+
+          <div class="rounded-xl border border-accent/30 bg-accent/5 p-6 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-accent font-bold block mb-2">02 / La Decisión Técnica</span>
+              <h3 class="font-mono text-sm font-bold text-foreground mb-3">Arquitectura &amp; Diseño</h3>
+              <p class="text-xs leading-relaxed text-muted font-sans">{project.engineeringLessons.decision}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-accent/20 text-[10px] font-mono text-accent">Resolución desacoplada</div>
+          </div>
+
+          <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-bold block mb-2">03 / Lección Aprendida</span>
+              <h3 class="font-mono text-sm font-bold text-foreground mb-3">Criterio en Producción</h3>
+              <p class="text-xs leading-relaxed text-muted font-sans">{project.engineeringLessons.learned}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-emerald-500/20 text-[10px] font-mono text-emerald-400">Aprendizaje humano</div>
+          </div>
+        </div>
+      </section>
+
       <section class="py-12 md:py-16">
         <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
           Decisiones de Diseño

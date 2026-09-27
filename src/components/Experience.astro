@@ -26,8 +26,8 @@ import Section from "./Section.astro";
         <ul class="mt-6 space-y-3">
           {job.bullets.map((b) => (
             <li class="flex gap-3 text-sm leading-relaxed text-muted">
-              <span class="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent/60"></span>
-              <span>{b}</span>
+              <span class="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+              <span class="[&>strong]:text-foreground [&>strong]:font-semibold" set:html={b} />
             </li>
           ))}
         </ul>

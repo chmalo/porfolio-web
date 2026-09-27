@@ -1,6 +1,10 @@
 export const profile = {
   name: "Christian Fernández",
   role: "Desarrollador Full-Stack & Team Lead",
+  headline:
+    "Senior Full-Stack & Team Lead | PHP/Laravel · React · Domain-Driven Design (DDD)",
+  valueProposition:
+    "Ayudo a empresas a escalar sistemas transaccionales de alta criticidad, modernizar arquitecturas heredadas y eliminar deuda técnica con código limpio, testeable y estándares bancarios.",
   stack: "PHP/Laravel · React · Domain-Driven Design (DDD)",
   location: "Sucre, Venezuela",
   availability: "Disponible para trabajo remoto / Nuevos retos",
@@ -10,15 +14,19 @@ export const profile = {
   cvUrl: "/cv_christian_fernandez.pdf",
   social: {
     linkedin: "https://linkedin.com/in/christian-fernandez-dev",
+    linkedinRecommendations:
+      "https://linkedin.com/in/christian-fernandez-dev/details/recommendations/",
     github: "https://github.com/chmalo",
   },
   summary:
-    "Desarrollador Full-Stack y Team Lead con más de 6 años de experiencia, especializado en sistemas de planificación de recursos empresariales (ERP) multi-tenant y entornos web de alta criticidad. Experto en construir soluciones escalables con PHP/Laravel y React, aplicando Domain-Driven Design (DDD), Arquitectura Hexagonal y testing automatizado (TDD/BDD). Lideró el equipo de desarrollo asignado a la mesa corporativa de un importante banco en Panamá bajo estándares bancarios de calidad y seguridad, y dirigió la modernización frontend de plataformas críticas de Vue a React.",
+    "Soy Christian Fernández. Llevo más de 6 años en la trinchera del desarrollo de software, diseñando, construyendo y manteniendo sistemas ERP empresariales multi-tenant y plataformas web transaccionales para empresas en América Latina. No creo en escribir código por inercia ni en soluciones mágicas: me especializo en intervenir sistemas con alta deuda técnica para transformarlos en arquitecturas desacopladas, testeables y fáciles de evolucionar mediante Domain-Driven Design (DDD) y Arquitectura Hexagonal. Como Team Lead, dirigí la mesa técnica asignada a un banco corporativo en Panamá bajo estrictos estándares de seguridad bancaria, y lideré la migración del portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 clientes corporativos.",
+  philosophy:
+    "El buen software no se mide por la cantidad de líneas escritas, sino por lo fácil que resulta adaptarlo cuando las reglas de negocio cambian. Construyo con mentalidad de producto: código testeable, dominio aislado del framework y comunicación directa entre directores de negocio y el equipo de ingeniería.",
   highlights: [
-    { value: "6+", label: "años de experiencia" },
-    { value: "Banca Corp.", label: "mesa corporativa en Panamá" },
-    { value: "DDD & Hexagonal", label: "arquitectura en producción" },
-    { value: "Vue ➔ React", label: "migración de core frontend" },
+    { value: "6+", label: "años en producción real" },
+    { value: "Banca Corp.", label: "mesa técnica en Panamá" },
+    { value: "DDD & Hexagonal", label: "arquitectura desacoplada" },
+    { value: "Vue ➔ React", label: "migración con cero downtime" },
   ],
 };
 
@@ -37,11 +45,11 @@ export const experience: Experience[] = [
     period: "Jun 2020 — Ago 2026 (6 años)",
     current: true,
     bullets: [
-      "Desarrollador principal de un sistema ERP empresarial multi-tenant con servicio activo para empresas de toda Latinoamérica.",
-      "Modernización de la arquitectura: migré módulos heredados a Domain-Driven Design (DDD) y Arquitectura Hexagonal, mejorando la mantenibilidad y reduciendo drásticamente la deuda técnica.",
-      "Cliente bancario corporativo (Panamá): lideré el equipo de desarrollo asignado a la mesa operativa de un importante banco comercial, entregando mejoras continuas y correcciones bajo rigurosos estándares de calidad y auditoría de nivel bancario.",
-      "Optimización de rendimiento: ajusté y optimicé consultas SQL y procesamiento de reportes de contabilidad e inventario, reduciendo sustancialmente los tiempos de generación.",
-      "Migración de frontend (2023): dirigí la migración tecnológica del portal de compras empresarial desde Vue a React con TypeScript, modernizando toda su interfaz y flujo de usuario.",
+      "<strong>Dirigí la mesa técnica asignada a un banco corporativo en Panamá:</strong> lideré al equipo de desarrollo resolviendo incidencias críticas y entregando evolutivos con cero observaciones de seguridad o fallos en auditorías bancarias.",
+      "<strong>Optimicé el motor de reportes contables e inventario:</strong> reduje los tiempos de generación de minutos a segundos para más de 100 empresas clientes en Latinoamérica, reestructurando índices y consultas complejas en PostgreSQL.",
+      "<strong>Lideré la migración del portal de compras empresarial:</strong> migré la plataforma desde Vue hacia una SPA en React 18 con TypeScript sin un solo minuto de interrupción de servicio para los clientes corporativos, acelerando el ciclo de entrega de nuevas funciones.",
+      "<strong>Modernicé el núcleo transaccional del ERP:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework y erradicando deuda técnica acumulada.",
+      "<strong>Instauré estándares rigurosos de calidad de código:</strong> implementé pipelines de análisis estático con PHPStan y cobertura de pruebas automatizadas con PHPUnit y Playwright, minimizando regresiones en entornos productivos.",
     ],
   },
 ];
@@ -90,6 +98,12 @@ export type ArchitectureDetail = {
   keyPoints: string[];
 };
 
+export type EngineeringLessons = {
+  challenge: string;
+  decision: string;
+  learned: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -103,6 +117,7 @@ export type Project = {
   secondaryGithubUrl?: { label: string; url: string };
   liveUrl?: string;
   architecture: ArchitectureDetail;
+  engineeringLessons: EngineeringLessons;
   features: string[];
   techStack: TechStackItem[];
   creationNotes: string[];
@@ -139,6 +154,14 @@ export const projects: Project[] = [
         "Eventos en tiempo real distribuidos mediante WebSockets para alertas de resolución instantánea.",
         "Pipeline de exportación asíncrona de expedientes legales a PDF y Excel con almacenamiento seguro en la nube.",
       ],
+    },
+    engineeringLessons: {
+      challenge:
+        "Coordinar expedientes confidenciales y resoluciones de casos entre múltiples departamentos escolares sin riesgo de fuga de datos ni pérdida de trazabilidad temporal.",
+      decision:
+        "Implementé un modelo de permisos atómicos RBAC con autenticación de dos factores (2FA) forzosa y sincronización de eventos de resolución en tiempo real mediante WebSockets.",
+      learned:
+        "En sistemas de alta sensibilidad, la seguridad y la auditoría forense no pueden ser un parche posterior: deben estar intrínsecas en el modelo de dominio desde el día uno.",
     },
     features: [
       "Gestión integral de expedientes confidenciales con control granular de accesos por rol.",
@@ -209,6 +232,14 @@ export const projects: Project[] = [
         "Contenedorización integral con Docker para despliegue reproducible en servidores locales o cloud.",
       ],
     },
+    engineeringLessons: {
+      challenge:
+        "Gestionar reglas de negocio agroindustriales altamente variables (curvas de mortalidad biológica, conversiones de alimento balanceado, mermas de almacén) propensas a romper cálculos contables.",
+      decision:
+        "Desacoplé la lógica biológica y de inventario en Bounded Contexts independientes con Domain-Driven Design, separando las fórmulas matemáticas del ORM y la persistencia en PostgreSQL.",
+      learned:
+        "El acoplamiento temprano al framework es el principal generador de deuda técnica en Laravel. Mantener las reglas biológicas en código puro PHP permitió modificarlas sin tocar la base de datos.",
+    },
     features: [
       "Monitoreo diario de lotes de aves: mortalidad, consumo de alimento balanceado y peso estimado.",
       "Control de inventario multialmacén: alimentos, vacunas y suministros con puntos de reorden.",
@@ -272,6 +303,14 @@ export const projects: Project[] = [
         "Migración frontend fluida sin interrupción operativa para las empresas clientes.",
         "Implementación de buenas prácticas bajo estándares Codely y control de calidad con PHPStan.",
       ],
+    },
+    engineeringLessons: {
+      challenge:
+        "Reemplazar un portal de compras legado en Vue y refactorizar controladores monolíticos mientras más de 100 empresas operaban transacciones reales en simultáneo.",
+      decision:
+        "Apliqué el patrón Strangler Fig: migración incremental por pantallas con contratos tipados en TypeScript y adaptadores REST para convivir con los endpoints legados hasta completar la transición a React 18.",
+      learned:
+        "Una migración técnica exitosa no se juzga por lo novedoso del stack, sino por su invisibilidad operativa para los usuarios que dependen del sistema para facturar.",
     },
     features: [
       "Portal de compras modernizado en React 18 con validaciones en tiempo real y UX fluida.",
@@ -406,12 +445,12 @@ export const languages = [
 ];
 
 export const softSkills = [
-  "Liderazgo técnico de equipos",
-  "Comunicación con clientes corporativos",
-  "Resolución de problemas críticos",
-  "Reducción de deuda técnica",
-  "Mentoría y code review riguroso",
-  "Enfoque en valor de negocio",
+  "Liderazgo técnico en mesas bancarias corporativas",
+  "Refactorización de arquitecturas legacy sin downtime",
+  "Modelado de dominio con Domain-Driven Design (DDD)",
+  "Cultura de calidad: TDD/BDD, PHPStan y Playwright",
+  "Optimización de bases de datos relacionales de alto volumen",
+  "Comunicación fluida con stakeholders y directores de negocio",
 ];
 
 export const navLinks = [

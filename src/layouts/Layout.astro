@@ -12,9 +12,8 @@ interface Props {
   schema?: Record<string, unknown>;
 }
 
-const defaultTitle = `${profile.name} — ${profile.role}`;
-const defaultDescription =
-  "Desarrollador Full-Stack y Team Lead con más de 6 años de experiencia en sistemas ERP empresariales, arquitectura DDD y proyectos bancarios corporativos.";
+const defaultTitle = `${profile.name} — ${profile.headline}`;
+const defaultDescription = profile.valueProposition;
 
 const {
   title = defaultTitle,
