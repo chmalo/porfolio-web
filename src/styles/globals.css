@@ -9,9 +9,9 @@
   --subtle: #64748b;
   --border: #e2e8f0;
   --surface: #ffffff;
-  --accent: #b45309;
-  --accent-strong: #92400e;
-  --accent-soft: #fef3c7;
+  --accent: #0369a1;
+  --accent-strong: #075985;
+  --accent-soft: #e0f2fe;
 }
 
 .dark {
@@ -21,9 +21,9 @@
   --subtle: #71717a;
   --border: #22262d;
   --surface: #111317;
-  --accent: #f59e0b;
-  --accent-strong: #fbbf24;
-  --accent-soft: rgba(245, 158, 11, 0.12);
+  --accent: #00d2ff;
+  --accent-strong: #00b4d8;
+  --accent-soft: rgba(0, 210, 255, 0.12);
 }
 
 @theme inline {
