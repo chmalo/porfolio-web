@@ -2,17 +2,12 @@ export const profile = {
   name: "Christian Fernández",
   role: "Desarrollador Full-Stack",
   headline:
-    "Desarrollador Full-Stack | Sistemas ERP & Transaccionales · PHP/Laravel · React · DDD",
+    "Desarrollador Full-Stack | Sistemas ERP & Plataformas Web · PHP/Laravel · React · DDD",
   valueProposition:
-    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas transaccionales de alta criticidad con PHP/Laravel, React y Arquitectura Hexagonal. Disponible como B2B Contractor con solapamiento EST.",
+    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas web transaccionales con PHP/Laravel, React y Domain-Driven Design (DDD).",
   stack: "PHP/Laravel · React · Domain-Driven Design (DDD)",
   location: "Sucre, Venezuela",
-  availability: "Disponible para contratación remota / B2B Contractor (Solapamiento EST)",
-  contractor: {
-    modality: "B2B Contractor / Remoto Full-time",
-    timezone: "UTC-4 (Solapamiento directo con Costa Este EE. UU. / EST)",
-    billing: "Facturación internacional en USD / Inicio inmediato",
-  },
+  availability: "Disponible para nuevos proyectos / Trabajo remoto",
   email: "chmalo.f@gmail.com",
   phone: "+58 424 895 1914",
   phoneHref: "tel:+584248951914",
@@ -24,12 +19,12 @@ export const profile = {
     github: "https://github.com/chmalo",
   },
   summary:
-    "Soy Christian Fernández. Llevo más de 6 años desarrollando y manteniendo sistemas ERP empresariales multi-tenant y plataformas web transaccionales en producción para empresas de América Latina. Me especializo en construir y modernizar software de gestión donde la consistencia de los datos, la facturación y el inventario son críticos. Trabajo con PHP/Laravel y React aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal para desacoplar las reglas de negocio del framework y permitir que el sistema evolucione sin acumular deuda técnica. En Medine.tech formé parte de la mesa técnica asignada a un banco corporativo en Panamá bajo estrictos estándares de seguridad bancaria, optimicé consultas de reportes reduciendo tiempos de minutos a segundos y migré el portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 empresas clientes.",
+    "Soy Christian Fernández. Llevo más de 6 años desarrollando y manteniendo sistemas ERP empresariales multi-tenant y plataformas web en producción para empresas de América Latina. Me especializo en construir y modernizar software de gestión donde la consistencia de los datos, la facturación y el inventario son críticos. Trabajo con PHP/Laravel y React aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal para desacoplar las reglas de negocio del framework y permitir que el sistema evolucione sin acumular deuda técnica. En Medine.tech colaboré como consultor técnico full-stack para Pensanómica (software ERP en Panamá), optimicé consultas de reportes contables reduciendo tiempos de horas a segundos y migré el portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 empresas clientes.",
   philosophy:
     "El buen software resuelve problemas de negocio reales y tolera el cambio. Priorizo código limpio y testeable, modelos de dominio que reflejen la realidad operativa de la empresa y una comunicación directa y transparente con los equipos de producto.",
   highlights: [
     { value: "6+", label: "años construyendo en producción" },
-    { value: "Banca Corp.", label: "mesa técnica en Panamá" },
+    { value: "Pensanómica", label: "consultor técnico en ERP" },
     { value: "DDD & Hexagonal", label: "arquitectura desacoplada" },
     { value: "Vue ➔ React", label: "migración con cero downtime" },
   ],
@@ -46,15 +41,24 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     role: "Desarrollador Full-Stack",
+    company: "Plaxila",
+    period: "2024 — 2026",
+    bullets: [
+      "Desarrollo e implementación de funcionalidades full-stack para aplicaciones y plataformas web escalables.",
+      "Diseño y consumo de APIs RESTful con validaciones estrictas y arquitectura desacoplada.",
+      "Construcción y optimización de interfaces de usuario modernas, interactivas y responsivas.",
+    ],
+  },
+  {
+    role: "Desarrollador Full-Stack",
     company: "Medine.tech",
     period: "Jun 2020 — Ago 2026 (6 años)",
-    current: true,
     bullets: [
-      "<strong>Desarrollo en la mesa técnica de un banco corporativo en Panamá:</strong> atendí y resolví incidencias operativas de alta criticidad, implementando mejoras continuas bajo rigurosos controles de seguridad y auditoría bancaria.",
-      "<strong>Optimicé el motor de reportes contables e inventario:</strong> reduje los tiempos de generación de minutos a segundos para más de 100 empresas clientes en Latinoamérica, reestructurando índices y consultas complejas en PostgreSQL.",
-      "<strong>Lideré la migración técnica del portal de compras:</strong> migré la plataforma desde Vue hacia una SPA en React 18 con TypeScript sin interrumpir la operación continua de los clientes corporativos, acelerando el ciclo de entrega de nuevas funciones.",
-      "<strong>Modernicé el núcleo transaccional del ERP:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework y reduciendo la deuda técnica acumulada.",
-      "<strong>Implementé testing automatizado y calidad estática:</strong> introduje análisis con PHPStan y cobertura de pruebas con PHPUnit y Playwright para asegurar despliegues confiables y prevenir regresiones en producción.",
+      "<strong>Desarrollo en sistema ERP empresarial multi-tenant:</strong> desarrollo continuo de nuevas funcionalidades y módulos para plataforma ERP en producción que da servicio a más de 100 empresas en Latinoamérica.",
+      "<strong>Consultoría técnica para Pensanómica (Flexio ERP):</strong> optimicé consultas SQL complejas en PostgreSQL y procesamiento de reportes de contabilidad e inventario, reduciendo tiempos de horas a segundos.",
+      "<strong>Migración frontend de portal de compras:</strong> lideré la migración técnica desde Vue hacia una SPA en React 18 con TypeScript sin interrumpir la operación continua de los clientes corporativos.",
+      "<strong>Modernización arquitectónica:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework.",
+      "<strong>Calidad y testing:</strong> implementé análisis estático con PHPStan y cobertura de pruebas automatizadas con PHPUnit y Playwright para asegurar entregas confiables a producción.",
     ],
   },
 ];
@@ -77,17 +81,26 @@ export const companies: Company[] = [
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-[#090a0c]",
     description:
-      "Desarrollo principal de ERP empresarial multi-tenant (100+ empresas en LatAm), modernización a DDD y migración frontend de compras de Vue a React.",
+      "Desarrollo y modernización de sistema ERP multi-tenant (100+ clientes en LatAm), refactorización a Domain-Driven Design (DDD) y migración frontend de compras a React con TypeScript.",
     url: "https://medine.tech",
   },
   {
-    name: "Cliente Bancario Corporativo",
-    role: "Desarrollador en Mesa Corporativa",
-    period: "Mesa Panamá",
-    logo: "/img/logo-medineTech.png",
-    logoBg: "bg-neutral-900",
+    name: "Pensanómica",
+    role: "Consultoría Técnica & Desarrollo",
+    period: "Consultoría",
+    logo: "/img/logo-pensanomica.png",
+    logoBg: "bg-white",
     description:
-      "Desarrollo y soporte técnico en la mesa asignada a un banco corporativo en Panamá, con entregas bajo rigurosos estándares de seguridad y calidad bancaria.",
+      "Consultoría técnica especializada en Flexio ERP: optimización de reportes y consultas complejas en PostgreSQL (de horas a segundos) y desarrollo de módulos contables.",
+    url: "https://pensanomica.com",
+  },
+  {
+    name: "Plaxila",
+    role: "Desarrollador Full-Stack",
+    period: "2024 — 2026",
+    logoBg: "bg-surface",
+    description:
+      "Desarrollo de aplicaciones web y plataformas escalables, diseño de servicios backend eficientes e implementación de interfaces de usuario modernas y responsivas.",
   },
 ];
 
@@ -450,17 +463,18 @@ export const languages = [
 ];
 
 export const softSkills = [
-  "Liderazgo técnico en mesas bancarias corporativas",
+  "Sistemas ERP y plataformas de facturación / inventario",
   "Refactorización de arquitecturas legacy sin downtime",
   "Modelado de dominio con Domain-Driven Design (DDD)",
-  "Cultura de calidad: TDD/BDD, PHPStan y Playwright",
-  "Optimización de bases de datos relacionales de alto volumen",
-  "Comunicación fluida con stakeholders y directores de negocio",
+  "Cultura de testing automatizado (TDD/BDD) y PHPStan",
+  "Optimización de bases de datos relacionales (PostgreSQL/MySQL)",
+  "Resolución de problemas críticos en entornos de producción",
 ];
 
 export const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#empresas", label: "Empresas" },
+  { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#arquitectura", label: "Arquitectura" },
   { href: "#proyectos", label: "Proyectos" },
   { href: "#experiencia", label: "Experiencia" },

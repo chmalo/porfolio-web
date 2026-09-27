@@ -41,31 +41,31 @@ const links: ContactItem[] = [
 ];
 ---
 
-<Section id="contacto" eyebrow="07 — Contacto" title="Canales Directos">
+<Section id="contacto" eyebrow="07 — Contacto" title="Canales Directos & Conversación">
   <div class="grid gap-12 md:grid-cols-5">
     <div class="md:col-span-2">
       <p class="text-sm leading-relaxed text-muted">
-        Disponible para contratación remota como Desarrollador Full-Stack bajo modalidad B2B Contractor o nómina internacional.
+        ¿Tienes una propuesta, vacante en mente o buscas sumar un desarrollador full-stack a tu equipo? Escríbeme directamente o contáctame por cualquiera de mis canales oficiales.
       </p>
 
-      <div class="mt-4 rounded-xl border border-border bg-surface/50 p-4 space-y-2 font-mono text-xs">
-        <div class="flex items-start justify-between gap-2">
-          <span class="text-subtle">Modalidad:</span>
-          <span class="text-foreground text-right">{profile.contractor.modality}</span>
+      <div class="mt-6 rounded-xl border border-border bg-surface/50 p-5 space-y-3 font-mono text-xs">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-subtle">Disponibilidad:</span>
+          <span class="text-accent font-semibold">Inmediata / Remoto</span>
         </div>
-        <div class="flex items-start justify-between gap-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-subtle">Ubicación:</span>
+          <span class="text-foreground">{profile.location}</span>
+        </div>
+        <div class="flex items-center justify-between gap-2">
           <span class="text-subtle">Zona Horaria:</span>
-          <span class="text-foreground text-right">{profile.contractor.timezone}</span>
-        </div>
-        <div class="flex items-start justify-between gap-2">
-          <span class="text-subtle">Facturación:</span>
-          <span class="text-accent text-right">{profile.contractor.billing}</span>
+          <span class="text-foreground">UTC-4 (EST compatible)</span>
         </div>
       </div>
 
       <a
         href={`mailto:${profile.email}`}
-        class="mt-6 inline-flex h-10 items-center gap-2 rounded bg-accent px-5 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
+        class="mt-6 inline-flex h-11 items-center gap-2 rounded bg-accent px-6 text-xs font-mono font-bold uppercase text-neutral-950 transition-colors hover:bg-accent-strong"
       >
         Enviar Correo Directo
         <Icon name="arrow-up-right" />
