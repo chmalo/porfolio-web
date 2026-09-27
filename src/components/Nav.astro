@@ -20,12 +20,13 @@ import ThemeToggle from "./ThemeToggle.astro";
       </span>
     </a>
 
-    <ul class="hidden items-center gap-8 md:flex">
+    <ul class="hidden items-center gap-7 md:flex">
       {navLinks.map((link) => (
         <li>
           <a
             href={link.href}
-            class="text-sm text-muted transition-colors hover:text-foreground"
+            data-nav-link={link.href}
+            class="text-sm font-medium text-muted transition-colors hover:text-foreground"
           >
             {link.label}
           </a>
@@ -38,7 +39,7 @@ import ThemeToggle from "./ThemeToggle.astro";
       <button
         id="mobile-nav-toggle"
         type="button"
-        class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:hidden"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-nav-menu"
@@ -97,6 +98,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     const openIcon = document.getElementById("menu-open-icon");
     const closeIcon = document.getElementById("menu-close-icon");
     const links = document.querySelectorAll("[data-mobile-nav-link]");
+    const navAnchors = document.querySelectorAll<HTMLAnchorElement>("a[data-nav-link]");
 
     if (!header || !toggleBtn || !menu) return;
 
@@ -129,6 +131,41 @@ import ThemeToggle from "./ThemeToggle.astro";
     links.forEach((l) => l.addEventListener("click", () => toggleMenu(false)));
     window.addEventListener("scroll", updateHeaderStyle, { passive: true });
     updateHeaderStyle();
+
+    const sections = Array.from(navAnchors)
+      .map((a) => {
+        const id = a.getAttribute("data-nav-link")?.replace("#", "");
+        return id ? document.getElementById(id) : null;
+      })
+      .filter((sec): sec is HTMLElement => Boolean(sec));
+
+    if (sections.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id");
+              navAnchors.forEach((anchor) => {
+                const href = anchor.getAttribute("data-nav-link");
+                if (href === `#${id}`) {
+                  anchor.classList.add("text-accent", "font-semibold");
+                  anchor.classList.remove("text-muted");
+                } else {
+                  anchor.classList.remove("text-accent", "font-semibold");
+                  anchor.classList.add("text-muted");
+                }
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-20% 0px -70% 0px",
+          threshold: 0,
+        }
+      );
+
+      sections.forEach((sec) => observer.observe(sec));
+    }
   }
 
   initNav();

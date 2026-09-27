@@ -1,22 +1,28 @@
-# Gibmyx Gomez - Portfolio & Profile
+# Christian Fernández — Portfolio & Perfil Profesional
 
-> Desarrollador Full Stack con más de 6 años de experiencia construyendo sistemas ERP y aplicaciones web escalables con Laravel, React, Next.js, Astro y Node.js. Especializado en integración de soluciones de Inteligencia Artificial (Claude, MCP, RAG, function calling).
+> Desarrollador Full-Stack con más de 6 años de experiencia construyendo y optimizando sistemas ERP empresariales multi-tenant y plataformas web con PHP/Laravel y React. Especializado en Domain-Driven Design (DDD), Arquitectura Hexagonal y testing automatizado (PHPUnit, PHPStan, Playwright).
 
 ## Datos de Contacto y Enlaces
-- Ubicación: Carúpano, Sucre, Venezuela (Disponible para trabajo remoto)
-- Email: verlumyx.tech@gmail.com
-- Teléfono: +58 414 846 2621
-- GitHub: https://github.com/verlumyx
-- LinkedIn: https://linkedin.com/in/gibmyx-gomez
+- Ubicación: Sucre, Venezuela (Disponible para trabajo remoto / Nuevos proyectos)
+- Email: chmalo.f@gmail.com
+- Teléfono: +58 424 895 1914
+- GitHub: https://github.com/chmalo
+- LinkedIn: https://linkedin.com/in/christian-fernandez-dev
 
 ## Experiencia Clave
-- **Medine.tech** (2019 - 2026): Desarrollador Full Stack & Líder de Soporte Técnico. +30 módulos ERP desarrollados para +100 empresas, optimización de reportes de horas a segundos, automatización con Claude + MCP para soporte técnico.
-- **Corefix** (2023 - 2024): Desarrollador Full Stack (AA México y Plenitud AA con Laravel y React).
-- **Pensanomica**: Soporte técnico y desarrollo de servicios cloud.
+- **Plaxila** (2024 — 2026): Desarrollador Full-Stack. Desarrollo de plataformas web escalables, diseño de APIs RESTful y construcción de interfaces de usuario modernas y reactivas.
+- **Medine.tech** (2020 — 2026): Desarrollador Full-Stack en sistema ERP multi-tenant (100+ clientes en LatAm), refactorización arquitectónica a DDD y migración frontend de compras a React con TypeScript.
+- **Pensanómica** (Consultoría): Consultoría técnica especializada en Flexio ERP: optimización de reportes contables y consultas PostgreSQL de horas a segundos.
+
+## Proyectos Destacados
+- **Siscav**: Sistema de gestión de casos y conflictos educativos con Laravel, React, TypeScript, MariaDB, 2FA, RBAC y WebSockets.
+- **Poultry Track**: Sistema de gestión integral para granjas avícolas con Laravel, React, PostgreSQL y arquitectura modular DDD.
+- **Medine ERP Portal**: Modernización y migración frontend de portal de compras de Vue a React con cero downtime.
 
 ## Stack Técnico
-- **Backend**: Laravel, PHP, Node.js, Express, REST APIs, Python
-- **Frontend**: Astro, React, Next.js, Vue.js, TypeScript, Tailwind CSS, HTML5, CSS3
-- **Bases de datos**: MySQL, PostgreSQL, Redis, MongoDB
-- **Inteligencia Artificial**: Anthropic Claude API, Model Context Protocol (MCP), LLM Tool Calling, RAG
-- **DevOps & Herramientas**: Git, Docker, Linux, CI/CD, Nginx
+- **Backend**: PHP 7.1+ / 8.2+, Laravel, CodeIgniter, Node.js, Next.js, APIs RESTful
+- **Frontend**: React 18, TypeScript, Vue.js, Vite, Tailwind CSS, Astro
+- **Arquitectura**: Domain-Driven Design (DDD), Arquitectura Hexagonal, SOLID, Clean Code
+- **Bases de Datos**: PostgreSQL, MySQL, MariaDB, Doctrine ORM, Eloquent, Optimización SQL
+- **Testing & Calidad**: PHPUnit, TDD/BDD, Behat, Playwright, PHPStan
+- **DevOps**: Docker, Docker Compose, Git, GitHub, CI/CD

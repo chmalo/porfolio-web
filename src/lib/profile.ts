@@ -150,7 +150,6 @@ export const projects: Project[] = [
       "Plataforma institucional para la resolución y seguimiento de conflictos estudiantiles y laborales. Diseñada para alta confidencialidad y coordinación inmediata entre departamentos escolares, cuenta con autenticación de dos factores (2FA), control de acceso granular por permisos (RBAC), actualizaciones en tiempo real y generación de reportes en PDF y Excel.",
     metaDescription:
       "Siscav — Sistema para instituciones educativas que gestiona casos de conflicto con Laravel, React, TypeScript y WebSockets.",
-    image: "/img/plenitudaa.png",
     status: "Completado",
     tags: [
       "Laravel",
@@ -228,7 +227,7 @@ export const projects: Project[] = [
       "ERP vertical para la agroindustria avícola que automatiza el seguimiento de lotes de cría, curvas de mortalidad, consumo de alimento, inventario de medicamentos, almacenes y ventas. Construido para resolver un problema operativo real del sector productivo.",
     metaDescription:
       "Poultry Track — Sistema de gestión integral para granjas avícolas con Laravel, React, TypeScript y PostgreSQL.",
-    image: "/img/aamexico.png",
+    image: "/img/poultry-track.png",
     status: "Producción",
     tags: [
       "Laravel",
@@ -239,7 +238,7 @@ export const projects: Project[] = [
       "Modular Architecture",
       "Docker",
     ],
-    githubUrl: "https://github.com/chmalo",
+    githubUrl: "https://github.com/chmalo/poultry-track",
     architecture: {
       summary:
         "Monolito modular modelado según Domain-Driven Design (DDD). Cada bounded context (Cría, Almacén, Inventario, Comercial) cuenta con entidades y agregados independientes sobre PostgreSQL.",
@@ -300,7 +299,6 @@ export const projects: Project[] = [
       "Caso de estudio técnico sobre la modernización del portal de compras y optimización de reportes críticos en un sistema ERP multi-tenant empresarial que da servicio a más de 100 empresas en Latinoamérica.",
     metaDescription:
       "Modernización de ERP en Medine.tech — Migración de Vue a React y arquitectura hexagonal en Laravel con PHP 8.2.",
-    image: "/img/plenitudaa.png",
     status: "Producción",
     tags: [
       "PHP 8.2",
@@ -472,13 +470,9 @@ export const softSkills = [
 ];
 
 export const navLinks = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#empresas", label: "Empresas" },
-  { href: "#sobre-mi", label: "Sobre mí" },
-  { href: "#arquitectura", label: "Arquitectura" },
   { href: "#proyectos", label: "Proyectos" },
   { href: "#experiencia", label: "Experiencia" },
-  { href: "#habilidades", label: "Habilidades" },
-  { href: "#formacion", label: "Formación" },
+  { href: "#arquitectura", label: "Arquitectura" },
+  { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];

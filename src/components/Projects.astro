@@ -65,10 +65,26 @@ import Section from "./Section.astro";
             </div>
           </div>
 
+          {p.image && (
+            <a
+              href={`/proyectos/${p.slug}`}
+              class="mt-4 block overflow-hidden rounded-xl border border-border/80 bg-surface/50 aspect-video relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <img
+                src={p.image}
+                alt={`Vista previa de ${p.title}`}
+                class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </a>
+          )}
+
           <h3 class="mt-5 text-xl font-bold font-mono tracking-tight text-foreground transition-colors group-hover:text-accent">
             <a
               href={`/proyectos/${p.slug}`}
-              class="focus:outline-hidden"
+              class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded"
             >
               {p.title}
             </a>
