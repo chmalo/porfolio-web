@@ -1,6 +1,6 @@
 ---
 interface Props {
-  name: "github" | "linkedin" | "mail" | "phone" | "download" | "arrow-up-right" | "map-pin";
+  name: "github" | "linkedin" | "mail" | "phone" | "download" | "arrow-up-right" | "map-pin" | "layers";
   class?: string;
 }
 
@@ -62,5 +62,13 @@ const baseProps = {
   <svg {...baseProps} class={className}>
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
     <circle cx="12" cy="10" r="3" />
+  </svg>
+)}
+
+{name === "layers" && (
+  <svg {...baseProps} class={className}>
+    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+    <polyline points="2 17 12 22 22 17" />
+    <polyline points="2 12 12 17 22 12" />
   </svg>
 )}

@@ -6,11 +6,11 @@ import Section from "./Section.astro";
 
 <Section
   id="proyectos"
-  eyebrow="03 — Proyectos"
-  title="Trabajos destacados & Repositorios"
+  eyebrow="02 — Proyectos & Arquitectura"
+  title="Trabajos Destacados & Arquitectura"
 >
   <p class="mb-10 max-w-2xl text-[15px] leading-relaxed text-muted">
-    Proyectos personales y de ingeniería con arquitecturas modernas, código testeable y soluciones técnicas reales para gestión de inventarios, expedientes y plataformas transaccionales.
+    Sistemas en producción y proyectos de ingeniería modelados con Domain-Driven Design (DDD), Arquitectura Hexagonal y separación estricta de responsabilidades.
   </p>
 
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -94,9 +94,19 @@ import Section from "./Section.astro";
             {p.tagline}
           </p>
 
-          <p class="mt-3 text-sm leading-relaxed text-muted font-sans line-clamp-4">
+          <p class="mt-3 text-sm leading-relaxed text-muted font-sans line-clamp-3">
             {p.description}
           </p>
+
+          <div class="mt-4 rounded-xl border border-border/80 bg-surface/60 p-4">
+            <div class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent font-semibold mb-1.5">
+              <Icon name="layers" class="h-3.5 w-3.5 shrink-0" />
+              <span>Arquitectura &amp; Patrón</span>
+            </div>
+            <p class="text-xs leading-relaxed text-muted font-sans line-clamp-3">
+              {p.architecture.summary}
+            </p>
+          </div>
 
           <ul class="mt-6 flex flex-wrap gap-1.5">
             {p.tags.slice(0, 5).map((t) => (
@@ -119,7 +129,7 @@ import Section from "./Section.astro";
             href={`/proyectos/${p.slug}`}
             class="inline-flex w-full items-center justify-between text-xs font-mono font-medium text-foreground transition-colors hover:text-accent"
           >
-            <span>Ver arquitectura &amp; detalle</span>
+            <span>Ver caso de estudio &amp; diagrama</span>
             <Icon name="arrow-up-right" class="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>

@@ -23,75 +23,78 @@ import Icon from "./Icon.astro";
     </div>
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-      {companies.map((company) => {
-        const cardClasses =
-          "group flex flex-col justify-between rounded-2xl border border-border bg-background p-6 transition-all duration-200 hover:border-accent/50 hover:bg-surface hover:shadow-xs";
-
-        const content = (
-          <>
-            <div class="flex items-start justify-between gap-4">
-              <div
-                class={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/80 p-2 shadow-xs transition-transform duration-300 group-hover:scale-105 ${
-                  company.logoBg ?? "bg-surface"
-                }`}
-              >
-                {company.logo ? (
-                  <img
-                    src={company.logo}
-                    alt={`Logo de ${company.name}`}
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    decoding="async"
-                    class="h-full w-full object-contain"
-                  />
-                ) : (
-                  <span class="font-mono text-sm font-bold text-accent">
-                    {company.name.slice(0, 2).toUpperCase()}
-                  </span>
-                )}
-              </div>
-              {company.url && (
-                <Icon name="arrow-up-right" class="shrink-0 text-subtle transition-colors group-hover:text-accent" />
+      {companies.map((company) => (
+        <article class="group flex flex-col justify-between rounded-2xl border border-border bg-background p-6 transition-all duration-200 hover:border-accent/50 hover:bg-surface hover:shadow-xs">
+          <div class="flex items-start justify-between gap-4">
+            <div
+              class={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/80 p-2 shadow-xs transition-transform duration-300 group-hover:scale-105 ${
+                company.logoBg ?? "bg-surface"
+              }`}
+            >
+              {company.logo ? (
+                <img
+                  src={company.logo}
+                  alt={`Logo de ${company.name}`}
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-contain"
+                />
+              ) : (
+                <span class="font-mono text-sm font-bold text-accent">
+                  {company.name.slice(0, 2).toUpperCase()}
+                </span>
               )}
             </div>
-
-            <div class="mt-6 flex flex-1 flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-accent">
-                    {company.name}
-                  </h3>
-                  <span class="font-mono text-xs text-subtle">
-                    {company.period}
-                  </span>
-                </div>
-                <p class="mt-1 font-mono text-xs text-accent font-medium">
-                  {company.role}
-                </p>
-                <p class="mt-3 text-sm leading-relaxed text-muted font-sans">
-                  {company.description}
-                </p>
-              </div>
+            <div class="flex items-center gap-2">
+              {company.linkedinUrl && (
+                <a
+                  href={company.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-subtle transition-colors hover:border-accent hover:text-accent"
+                  title={`LinkedIn de ${company.name}`}
+                  aria-label={`Ver perfil de LinkedIn de ${company.name}`}
+                >
+                  <Icon name="linkedin" class="h-4 w-4" />
+                </a>
+              )}
+              {company.url && (
+                <a
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-subtle transition-colors hover:border-accent hover:text-accent"
+                  title={`Sitio web de ${company.name}`}
+                  aria-label={`Visitar sitio web de ${company.name}`}
+                >
+                  <Icon name="arrow-up-right" class="h-4 w-4" />
+                </a>
+              )}
             </div>
-          </>
-        );
+          </div>
 
-        return company.url ? (
-          <a
-            href={company.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={cardClasses}
-          >
-            {content}
-          </a>
-        ) : (
-          <article class={cardClasses}>
-            {content}
-          </article>
-        );
-      })}
+          <div class="mt-6 flex flex-1 flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-accent">
+                  {company.name}
+                </h3>
+                <span class="font-mono text-xs text-subtle">
+                  {company.period}
+                </span>
+              </div>
+              <p class="mt-1 font-mono text-xs text-accent font-medium">
+                {company.role}
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-muted font-sans">
+                {company.description}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>

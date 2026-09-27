@@ -2,10 +2,10 @@ export const profile = {
   name: "Christian Fernández",
   role: "Desarrollador Full-Stack",
   headline:
-    "Desarrollador Full-Stack | Sistemas ERP & Plataformas Web · PHP/Laravel · React · DDD",
+    "Full-Stack Engineer | Sistemas ERP, APIs & Arquitectura de Software",
   valueProposition:
-    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas web transaccionales con PHP/Laravel, React y Domain-Driven Design (DDD).",
-  stack: "PHP/Laravel · React · Domain-Driven Design (DDD)",
+    "Desarrollo y modernizo sistemas ERP empresariales, módulos de facturación y plataformas web con TypeScript/Node.js, PHP/Laravel, React y Domain-Driven Design (DDD).",
+  stack: "TypeScript/Node.js · PHP/Laravel · React · Python · DDD",
   location: "Sucre, Venezuela",
   availability: "Disponible para nuevos proyectos / Trabajo remoto",
   email: "chmalo.f@gmail.com",
@@ -19,12 +19,12 @@ export const profile = {
     github: "https://github.com/chmalo",
   },
   summary:
-    "Soy Christian Fernández. Llevo más de 6 años desarrollando y manteniendo sistemas ERP empresariales multi-tenant y plataformas web en producción para empresas de América Latina. Me especializo en construir y modernizar software de gestión donde la consistencia de los datos, la facturación y el inventario son críticos. Trabajo con PHP/Laravel y React aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal para desacoplar las reglas de negocio del framework y permitir que el sistema evolucione sin acumular deuda técnica. En Medine.tech colaboré como consultor técnico full-stack para Pensanómica (software ERP en Panamá), optimicé consultas de reportes contables reduciendo tiempos de horas a segundos y migré el portal de compras empresarial de Vue a React con cero tiempo de inactividad para más de 100 empresas clientes.",
+    "Soy Christian Fernández. Llevo más de 6 años construyendo y manteniendo sistemas ERP y plataformas web de gestión en producción. Me especializo en desarrollar y modernizar software empresarial donde la consistencia de datos, la facturación y el inventario son críticos. Cuento con una sólida trayectoria en producción con PHP/Laravel y React, pero entiendo los lenguajes como herramientas de ingeniería: trabajo con solvencia en TypeScript/Node.js y Python aplicando Domain-Driven Design (DDD), Arquitectura Hexagonal y testing automatizado para garantizar que los sistemas evolucionen sin deuda técnica. A través de Medine.tech colaboré como consultor técnico full-stack para Pensanómica (software ERP en Panamá), optimicé consultas complejas en MySQL reduciendo tiempos de reportes de horas a segundos y migré el portal de compras empresarial de Vue a React con cero downtime para las empresas clientes.",
   philosophy:
     "El buen software resuelve problemas de negocio reales y tolera el cambio. Priorizo código limpio y testeable, modelos de dominio que reflejen la realidad operativa de la empresa y una comunicación directa y transparente con los equipos de producto.",
   highlights: [
     { value: "6+", label: "años construyendo en producción" },
-    { value: "Pensanómica", label: "consultor técnico en ERP" },
+    { value: "Pensanómica", label: "consultor técnico en ERP (Panamá)" },
     { value: "DDD & Hexagonal", label: "arquitectura desacoplada" },
     { value: "Vue ➔ React", label: "migración con cero downtime" },
   ],
@@ -41,12 +41,12 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     role: "Desarrollador Full-Stack",
-    company: "Plaxila",
-    period: "2024 — 2026",
+    company: "Platzilla",
+    period: "2026",
     bullets: [
-      "Desarrollo e implementación de funcionalidades full-stack para aplicaciones y plataformas web escalables.",
-      "Diseño y consumo de APIs RESTful con validaciones estrictas y arquitectura desacoplada.",
-      "Construcción y optimización de interfaces de usuario modernas, interactivas y responsivas.",
+      "Desarrollo full-stack para plataforma de organización de datos, rutinas de equipo e indicadores de gestión empresarial.",
+      "Diseño e integración de APIs RESTful con validaciones estrictas y arquitectura desacoplada.",
+      "Construcción y optimización de interfaces de usuario modernas, interactivas y responsivas con React y TypeScript.",
     ],
   },
   {
@@ -54,10 +54,10 @@ export const experience: Experience[] = [
     company: "Medine.tech",
     period: "Jun 2020 — Ago 2026 (6 años)",
     bullets: [
-      "<strong>Desarrollo en sistema ERP empresarial multi-tenant:</strong> desarrollo continuo de nuevas funcionalidades y módulos para plataforma ERP en producción que da servicio a más de 100 empresas en Latinoamérica.",
-      "<strong>Consultoría técnica para Pensanómica (Flexio ERP):</strong> optimicé consultas SQL complejas en PostgreSQL y procesamiento de reportes de contabilidad e inventario, reduciendo tiempos de horas a segundos.",
+      "<strong>Desarrollo en sistema ERP empresarial:</strong> desarrollo continuo de nuevas funcionalidades y módulos para plataforma ERP en producción.",
+      "<strong>Consultoría técnica para Pensanómica (Flexio ERP, Panamá):</strong> optimicé consultas SQL complejas en MySQL y procesamiento de reportes de contabilidad e inventario, reduciendo tiempos de horas a segundos.",
       "<strong>Migración frontend de portal de compras:</strong> lideré la migración técnica desde Vue hacia una SPA en React 18 con TypeScript sin interrumpir la operación continua de los clientes corporativos.",
-      "<strong>Modernización arquitectónica:</strong> refactoricé módulos monolíticos heredados aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework.",
+      "<strong>Modernización arquitectónica:</strong> refactoricé módulos monolíticos aplicando Domain-Driven Design (DDD) y Arquitectura Hexagonal, aislando las reglas de negocio del framework.",
       "<strong>Calidad y testing:</strong> implementé análisis estático con PHPStan y cobertura de pruebas automatizadas con PHPUnit y Playwright para asegurar entregas confiables a producción.",
     ],
   },
@@ -71,9 +71,21 @@ export type Company = {
   logoBg?: string;
   description: string;
   url?: string;
+  linkedinUrl?: string;
 };
 
 export const companies: Company[] = [
+  {
+    name: "Platzilla",
+    role: "Desarrollador Full-Stack",
+    period: "2026",
+    logo: "/img/logo-platzilla.png",
+    logoBg: "bg-white",
+    description:
+      "Desarrollo de funcionalidades full-stack para plataforma de organización de datos, rutinas operativas e indicadores de gestión empresarial.",
+    url: "https://www.platzilla.com/",
+    linkedinUrl: "https://www.linkedin.com/company/platzilla-software/",
+  },
   {
     name: "Medine.tech",
     role: "Desarrollador Full-Stack",
@@ -81,8 +93,9 @@ export const companies: Company[] = [
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-[#090a0c]",
     description:
-      "Desarrollo y modernización de sistema ERP multi-tenant (100+ clientes en LatAm), refactorización a Domain-Driven Design (DDD) y migración frontend de compras a React con TypeScript.",
+      "Desarrollo y modernización de sistema ERP empresarial, refactorización a Domain-Driven Design (DDD) y consultoría técnica especializada para Pensanómica en Panamá.",
     url: "https://medine.tech",
+    linkedinUrl: "https://www.linkedin.com/company/medinetech/",
   },
   {
     name: "Pensanómica",
@@ -91,16 +104,9 @@ export const companies: Company[] = [
     logo: "/img/logo-pensanomica.png",
     logoBg: "bg-white",
     description:
-      "Consultoría técnica especializada en Flexio ERP: optimización de reportes y consultas complejas en PostgreSQL (de horas a segundos) y desarrollo de módulos contables.",
+      "Consultoría técnica especializada en Flexio ERP para Panamá: optimización de reportes contables y consultas complejas en MySQL (reduciendo tiempos de horas a segundos).",
     url: "https://pensanomica.com",
-  },
-  {
-    name: "Plaxila",
-    role: "Desarrollador Full-Stack",
-    period: "2024 — 2026",
-    logoBg: "bg-surface",
-    description:
-      "Desarrollo de aplicaciones web y plataformas escalables, diseño de servicios backend eficientes e implementación de interfaces de usuario modernas y responsivas.",
+    linkedinUrl: "https://www.linkedin.com/company/pensanomica/",
   },
 ];
 
@@ -296,7 +302,7 @@ export const projects: Project[] = [
     title: "Medine ERP — Portal de Compras & Modernización",
     tagline: "Migración de Vue a React y Modernización Arquitectónica Hexagonal",
     description:
-      "Caso de estudio técnico sobre la modernización del portal de compras y optimización de reportes críticos en un sistema ERP multi-tenant empresarial que da servicio a más de 100 empresas en Latinoamérica.",
+      "Caso de estudio técnico sobre la modernización del portal de compras y optimización de reportes críticos en un sistema ERP empresarial para Pensanómica en Panamá.",
     metaDescription:
       "Modernización de ERP en Medine.tech — Migración de Vue a React y arquitectura hexagonal en Laravel con PHP 8.2.",
     status: "Producción",
@@ -306,7 +312,7 @@ export const projects: Project[] = [
       "React 18",
       "Vue.js",
       "Hexagonal Architecture",
-      "PostgreSQL",
+      "MySQL",
       "Optimization",
     ],
     liveUrl: "https://medine.tech",
@@ -315,14 +321,14 @@ export const projects: Project[] = [
         "Reestructuración progresiva de módulos monolíticos heredados hacia Arquitectura Hexagonal y migración completa del portal de compras desde Vue.js hacia una SPA en React 18 con TypeScript.",
       keyPoints: [
         "Desacoplamiento de controladores saturados mediante la introducción de puertos, adaptadores y casos de uso.",
-        "Optimización de consultas SQL complejas en PostgreSQL, reduciendo el tiempo de generación de reportes de horas a segundos.",
+        "Optimización de consultas SQL complejas en MySQL, reduciendo el tiempo de generación de reportes de horas a segundos.",
         "Migración frontend fluida sin interrupción operativa para las empresas clientes.",
         "Implementación de buenas prácticas bajo estándares Codely y control de calidad con PHPStan.",
       ],
     },
     engineeringLessons: {
       challenge:
-        "Reemplazar un portal de compras legado en Vue y refactorizar controladores monolíticos mientras más de 100 empresas operaban transacciones reales en simultáneo.",
+        "Reemplazar un portal de compras legado en Vue y refactorizar controladores monolíticos mientras empresas operaban transacciones reales en simultáneo.",
       decision:
         "Apliqué el patrón Strangler Fig: migración incremental por pantallas con contratos tipados en TypeScript y adaptadores REST para convivir con los endpoints legados hasta completar la transición a React 18.",
       learned:
@@ -347,8 +353,8 @@ export const projects: Project[] = [
       },
       {
         layer: "Bases de Datos",
-        tech: "PostgreSQL & MySQL",
-        purpose: "Almacenamiento multi-tenant con índices de alto rendimiento para contabilidad.",
+        tech: "MySQL",
+        purpose: "Almacenamiento relacional con índices de alto rendimiento para contabilidad y compras.",
       },
       {
         layer: "Calidad de Código",
@@ -357,8 +363,8 @@ export const projects: Project[] = [
       },
     ],
     creationNotes: [
-      "Representó uno de los mayores hitos de ingeniería en Medine.tech: eliminar la deuda técnica sin detener la operación de las empresas.",
-      "Los estándares de confiabilidad implementados aquí fueron clave para atender la mesa corporativa bancaria de Panamá.",
+      "Representó uno de los mayores hitos de ingeniería en Medine.tech: eliminar la deuda técnica sin detener la operación de las empresas clientes.",
+      "Los estándares de confiabilidad implementados aquí fueron clave para asegurar la estabilidad operativa del software en Panamá.",
     ],
   },
 ];
@@ -367,11 +373,12 @@ export const skills: { category: string; items: string[] }[] = [
   {
     category: "Lenguajes & Backend",
     items: [
+      "TypeScript",
+      "Node.js",
       "PHP 7.1+ / 8.2+",
       "Laravel",
-      "TypeScript",
+      "Python (FastAPI / Scripts)",
       "JavaScript",
-      "Node.js",
       "Next.js",
       "CodeIgniter",
     ],
@@ -401,8 +408,8 @@ export const skills: { category: string; items: string[] }[] = [
   {
     category: "Bases de Datos",
     items: [
-      "PostgreSQL",
       "MySQL",
+      "PostgreSQL",
       "MariaDB",
       "Doctrine ORM",
       "Eloquent ORM",
@@ -470,9 +477,8 @@ export const softSkills = [
 ];
 
 export const navLinks = [
+  { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#proyectos", label: "Proyectos" },
   { href: "#experiencia", label: "Experiencia" },
-  { href: "#arquitectura", label: "Arquitectura" },
-  { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];
