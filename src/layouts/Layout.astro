@@ -23,7 +23,7 @@ const {
   schema,
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL("https://christianfernandez.dev");
+const siteUrl = Astro.site ?? new URL("https://www.cfernandez.website");
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = new URL(image, siteUrl).toString();
 

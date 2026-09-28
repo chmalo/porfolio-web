@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://christianfernandez.dev',
+  site: 'https://www.cfernandez.website',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

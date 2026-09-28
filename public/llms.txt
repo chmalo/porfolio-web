@@ -8,7 +8,7 @@
 - Teléfono: +58 424 895 1914
 - GitHub: https://github.com/chmalo
 - LinkedIn: https://linkedin.com/in/christian-fernandez-dev
-- Sitio Web: https://christianfernandez.dev
+- Sitio Web: https://www.cfernandez.website
 
 ## Trayectoria y Empresas
 - **Platzilla** (2026): Desarrollador Full-Stack. Desarrollo de funcionalidades para plataforma de organización de datos, rutinas operativas e indicadores de gestión empresarial.

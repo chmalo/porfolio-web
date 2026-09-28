@@ -10,4 +10,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://christianfernandez.dev/sitemap-index.xml
+Sitemap: https://www.cfernandez.website/sitemap-index.xml
