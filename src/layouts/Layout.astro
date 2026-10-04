@@ -12,7 +12,7 @@ interface Props {
   schema?: Record<string, unknown>;
 }
 
-const defaultTitle = `${profile.name} — Full-Stack Engineer`;
+const defaultTitle = `${profile.name} | Desarrollador Full-Stack`;
 const defaultDescription = profile.valueProposition;
 
 const {
@@ -31,7 +31,7 @@ const defaultSchemaData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  jobTitle: "Full-Stack Engineer",
+  jobTitle: "Desarrollador Full-Stack",
   description: profile.summary,
   url: canonicalURL,
   sameAs: [profile.social.github, profile.social.linkedin],

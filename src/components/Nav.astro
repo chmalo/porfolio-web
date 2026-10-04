@@ -5,104 +5,117 @@ import ThemeToggle from "./ThemeToggle.astro";
 
 <header
   id="main-nav-header"
-  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors"
+  class="fixed inset-x-0 top-3 z-50 flex justify-center px-4 pointer-events-none"
 >
-  <nav class="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
-    <a
-      href="/"
-      class="group flex items-center gap-3 transition-opacity hover:opacity-90"
-      aria-label={`${profile.name} — Inicio`}
+  <div class="pointer-events-auto flex w-full max-w-4xl flex-col items-center">
+    <nav
+      class="flex w-full items-center justify-between gap-3 rounded-full border border-border/80 bg-background/85 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 sm:px-5"
     >
-      <img
-        src="/img/logo-icon.png"
-        alt="Logo Christian Fernández"
-        class="h-8 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105"
-        width="32"
-        height="37"
-      />
-      <div class="flex flex-col">
-        <span class="font-sans text-sm font-bold tracking-tight text-foreground leading-snug">
-          {profile.name}
-        </span>
-        <span class="font-mono text-[10px] uppercase tracking-wider text-accent font-semibold leading-none">
-          Full-Stack Engineer
-        </span>
-      </div>
-    </a>
+      <div class="flex items-center gap-3">
+        <a
+          href="/"
+          class="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
+          aria-label={`${profile.name} - Inicio`}
+        >
+          <img
+            src="/img/logo-icon.png"
+            alt="Logo Christian Fernández"
+            class="h-7 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105"
+            width="28"
+            height="32"
+          />
+          <span class="font-sans text-sm font-bold tracking-tight text-foreground">
+            {profile.name}
+          </span>
+        </a>
 
-    <ul class="hidden items-center gap-7 md:flex">
+        <div
+          class="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-emerald-600 dark:text-emerald-400"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Disponible</span>
+        </div>
+      </div>
+
+      <ul class="hidden items-center gap-1 md:flex">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              data-nav-link={link.href}
+              class="rounded-full px-3.5 py-1.5 text-xs font-mono font-medium text-muted transition-colors hover:text-foreground hover:bg-surface"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <ThemeToggle />
+        <button
+          id="mobile-nav-toggle"
+          type="button"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:hidden"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-nav-menu"
+        >
+          <svg
+            id="menu-open-icon"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+          <svg
+            id="menu-close-icon"
+            class="hidden h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <ul
+      id="mobile-nav-menu"
+      class="hidden mt-2 w-full rounded-2xl border border-border bg-background/95 p-4 shadow-lg backdrop-blur-md md:hidden"
+    >
       {navLinks.map((link) => (
         <li>
           <a
             href={link.href}
-            data-nav-link={link.href}
-            class="text-sm font-medium text-muted transition-colors hover:text-foreground"
+            data-mobile-nav-link
+            class="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted transition-colors hover:bg-surface hover:text-foreground"
           >
             {link.label}
           </a>
         </li>
       ))}
-    </ul>
-
-    <div class="flex items-center gap-3">
-      <ThemeToggle />
-      <button
-        id="mobile-nav-toggle"
-        type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:hidden"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="mobile-nav-menu"
-      >
-        <svg
-          id="menu-open-icon"
-          class="h-4 w-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <path d="M4 7h16M4 12h16M4 17h16"></path>
-        </svg>
-        <svg
-          id="menu-close-icon"
-          class="hidden h-4 w-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <path d="M18 6 6 18M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-  </nav>
-
-  <ul
-    id="mobile-nav-menu"
-    class="hidden border-t border-border px-6 py-4 md:hidden bg-background/95 backdrop-blur-md"
-  >
-    {navLinks.map((link) => (
-      <li>
-        <a
-          href={link.href}
-          data-mobile-nav-link
-          class="block py-3 text-base text-muted transition-colors hover:text-foreground"
-        >
-          {link.label}
-        </a>
+      <li class="mt-2 border-t border-border/80 pt-2">
+        <div class="flex items-center gap-2 px-3 py-1 font-mono text-xs text-emerald-600 dark:text-emerald-400">
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Disponible para contratación</span>
+        </div>
       </li>
-    ))}
-  </ul>
+    </ul>
+  </div>
 </header>
 
 <script>
   function initNav() {
-    const header = document.getElementById("main-nav-header");
     const toggleBtn = document.getElementById("mobile-nav-toggle");
     const menu = document.getElementById("mobile-nav-menu");
     const openIcon = document.getElementById("menu-open-icon");
@@ -110,20 +123,9 @@ import ThemeToggle from "./ThemeToggle.astro";
     const links = document.querySelectorAll("[data-mobile-nav-link]");
     const navAnchors = document.querySelectorAll<HTMLAnchorElement>("a[data-nav-link]");
 
-    if (!header || !toggleBtn || !menu) return;
+    if (!toggleBtn || !menu) return;
 
     let isOpen = false;
-
-    const updateHeaderStyle = () => {
-      const isScrolled = window.scrollY > 8;
-      if (isScrolled || isOpen) {
-        header.classList.add("border-border", "bg-background/80", "backdrop-blur-md");
-        header.classList.remove("border-transparent");
-      } else {
-        header.classList.remove("border-border", "bg-background/80", "backdrop-blur-md");
-        header.classList.add("border-transparent");
-      }
-    };
 
     const toggleMenu = (forceState?: boolean) => {
       isOpen = typeof forceState === "boolean" ? forceState : !isOpen;
@@ -134,13 +136,10 @@ import ThemeToggle from "./ThemeToggle.astro";
       }
       toggleBtn.setAttribute("aria-expanded", isOpen.toString());
       toggleBtn.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-      updateHeaderStyle();
     };
 
     toggleBtn.addEventListener("click", () => toggleMenu());
     links.forEach((l) => l.addEventListener("click", () => toggleMenu(false)));
-    window.addEventListener("scroll", updateHeaderStyle, { passive: true });
-    updateHeaderStyle();
 
     const sections = Array.from(navAnchors)
       .map((a) => {
@@ -158,10 +157,10 @@ import ThemeToggle from "./ThemeToggle.astro";
               navAnchors.forEach((anchor) => {
                 const href = anchor.getAttribute("data-nav-link");
                 if (href === `#${id}`) {
-                  anchor.classList.add("text-accent", "font-semibold");
+                  anchor.classList.add("text-accent", "font-semibold", "bg-surface");
                   anchor.classList.remove("text-muted");
                 } else {
-                  anchor.classList.remove("text-accent", "font-semibold");
+                  anchor.classList.remove("text-accent", "font-semibold", "bg-surface");
                   anchor.classList.add("text-muted");
                 }
               });

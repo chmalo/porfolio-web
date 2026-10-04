@@ -20,7 +20,7 @@ const projectCanonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
 const projectSchema = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  headline: `${project.title} — ${project.tagline}`,
+  headline: `${project.title}: ${project.tagline}`,
   description: project.description,
   url: projectCanonicalURL,
   author: {
@@ -33,7 +33,7 @@ const projectSchema = {
 ---
 
 <Layout
-  title={`${project.title} — Arquitectura y Detalles | ${profile.name}`}
+  title={`${project.title} | Arquitectura y Detalles - ${profile.name}`}
   description={project.metaDescription ?? project.description}
   ogType="article"
   image={project.image ?? "/og-image.png"}
