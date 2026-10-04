@@ -2,7 +2,7 @@ export const profile = {
   name: "Christian Fernández",
   role: "Desarrollador Full-Stack",
   headline:
-    "Full-Stack Engineer | Sistemas ERP, APIs & Arquitectura de Software",
+    "Desarrollador Full-Stack | Sistemas ERP, APIs & Arquitectura de Software",
   valueProposition:
     "Desarrollador Full-Stack enfocado en sistemas ERP empresariales, APIs robustas y plataformas web con TypeScript, PHP/Laravel, React y Domain-Driven Design.",
   stack: "TypeScript/Node.js · PHP/Laravel · React · Python · DDD",
@@ -19,6 +19,8 @@ export const profile = {
   },
   summary:
     "Soy Christian Fernández. Llevo más de 6 años construyendo y manteniendo sistemas ERP y plataformas web de gestión en producción. Me especializo en desarrollar y modernizar software empresarial donde la consistencia de datos, la facturación y el inventario son críticos. Cuento con una sólida trayectoria en producción con PHP/Laravel y React, pero entiendo los lenguajes como herramientas de ingeniería: trabajo con solvencia en TypeScript/Node.js y Python aplicando Domain-Driven Design (DDD), Arquitectura Hexagonal y testing automatizado para garantizar que los sistemas evolucionen sin deuda técnica. A través de Medine.tech colaboré como consultor técnico full-stack para Pensanómica (software ERP en Panamá), optimicé consultas complejas en MySQL reduciendo tiempos de reportes de horas a segundos y migré el portal de compras empresarial de Vue a React con cero downtime para las empresas clientes.",
+  cvSummary:
+    "Desarrollador Full-Stack con más de 6 años de experiencia en desarrollo y modernización de sistemas ERP empresariales y plataformas web de alta disponibilidad. Especializado en PHP/Laravel, React, TypeScript y arquitecturas desacopladas (DDD, Hexagonal) con testing automatizado y enfoque en consistencia de datos.",
   philosophy:
     "El buen software resuelve problemas de negocio reales y tolera el cambio. Priorizo código limpio y testeable, modelos de dominio que reflejen la realidad operativa de la empresa y una comunicación directa y transparente con los equipos de producto.",
   highlights: [
@@ -51,7 +53,7 @@ export const experience: Experience[] = [
   {
     role: "Desarrollador Full-Stack",
     company: "Medine.tech",
-    period: "Jun 2020 — Ago 2026 (6 años)",
+    period: "Jun 2020 - Ago 2026 (6 años)",
     bullets: [
       "<strong>Desarrollo en sistema ERP empresarial:</strong> desarrollo continuo de nuevas funcionalidades y módulos para plataforma ERP en producción.",
       "<strong>Consultoría técnica para Pensanómica (Flexio ERP, Panamá):</strong> optimicé consultas SQL complejas en MySQL y procesamiento de reportes de contabilidad e inventario, reduciendo tiempos de horas a segundos.",
@@ -88,7 +90,7 @@ export const companies: Company[] = [
   {
     name: "Medine.tech",
     role: "Desarrollador Full-Stack",
-    period: "2020 — 2026",
+    period: "2020 - 2026",
     logo: "/img/logo-medineTech.png",
     logoBg: "bg-[#090a0c]",
     description:
@@ -156,7 +158,7 @@ export const projects: Project[] = [
     description:
       "Aplicación web progresiva (PWA) de finanzas operativas para conductores y propietarios en el sector de transporte en dos ruedas. Permite a los choferes registrar sus ingresos diarios en calle, conciliar gastos de combustible y alquiler al cierre del período, y automatizar el reparto transparente entre la ganancia neta del chofer y el fondo de mantenimiento preventivo ('Pote Moto').",
     metaDescription:
-      "Moto Taxi Finance — PWA financiera multi-tenant con Next.js, React 19, TypeScript, PostgreSQL RLS y Drizzle ORM.",
+      "Moto Taxi Finance - PWA financiera multi-tenant con Next.js, React 19, TypeScript, PostgreSQL RLS y Drizzle ORM.",
     image: "/img/moto-taxi.png",
     status: "Producción",
     tags: [
@@ -226,12 +228,12 @@ export const projects: Project[] = [
   },
   {
     slug: "indacsa",
-    title: "INDACSA — Planificación Agroindustrial",
+    title: "INDACSA - Planificación Agroindustrial",
     tagline: "Sistema de Optimización y Programación de Procesamiento de Semilla Certificada",
     description:
       "Aplicación técnica interna diseñada para reemplazar la planificación manual en hojas de cálculo de INDACSA, empresa productora de semilla certificada para siembra. El sistema modela la recepción de grano crudo, la capacidad de procesado en cuatro centros de maquinaria especializada y el balanceo de inventarios, resolviendo la secuenciación de producción para minimizar tiempos muertos y costos de limpieza entre cambios de variedad.",
     metaDescription:
-      "INDACSA — Sistema de planificación de procesado de semilla certificada con Laravel, Inertia, React 19, TypeScript y PostgreSQL.",
+      "INDACSA - Sistema de planificación de procesado de semilla certificada con Laravel, Inertia, React 19, TypeScript y PostgreSQL.",
     image: "/img/indacsa.png",
     status: "Producción",
     isInternal: true,
@@ -310,7 +312,7 @@ export const projects: Project[] = [
     description:
       "ERP vertical para la agroindustria avícola que automatiza el seguimiento de lotes de cría, curvas de mortalidad, consumo de alimento, inventario de medicamentos, almacenes y ventas. Construido para resolver un problema operativo real del sector productivo.",
     metaDescription:
-      "Poultry Track — Sistema de gestión integral para granjas avícolas con Laravel, React, TypeScript y PostgreSQL.",
+      "Poultry Track - Sistema de gestión integral para granjas avícolas con Laravel, React, TypeScript y PostgreSQL.",
     image: "/img/poultry-track.png",
     status: "En desarrollo",
     tags: [

@@ -1,0 +1,332 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  profile,
+  education,
+  certifications,
+  languages,
+} from "@/lib/profile";
+import Icon from "@/components/Icon.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+
+const title = `Curriculum Vitae | ${profile.name}`;
+const description = `Currículum Vitae de ${profile.name}, Desarrollador Full-Stack especializado en sistemas ERP empresariales, APIs y arquitectura de software.`;
+
+const skillGroups = [
+  {
+    name: "Backend & APIs",
+    items: "PHP (8.2+, 8.4), Laravel, TypeScript, Node.js, Python (FastAPI), RESTful APIs, CodeIgniter",
+  },
+  {
+    name: "Frontend & UI",
+    items: "React (18/19), TypeScript, Inertia.js 3, Vue.js, Vite, Tailwind CSS, SPAs, Progressive Web Apps (PWA)",
+  },
+  {
+    name: "Arquitectura & Datos",
+    items: "Domain-Driven Design (DDD), Arquitectura Hexagonal, SOLID, Clean Code, PostgreSQL (RLS), MySQL, Drizzle ORM",
+  },
+  {
+    name: "Testing & DevOps",
+    items: "PHPUnit, Pest, TDD, Playwright (E2E), PHPStan (Análisis Estático), Docker, Docker Compose, CI/CD, Git",
+  },
+];
+
+const jobs = [
+  {
+    role: "Desarrollador Full-Stack",
+    company: "Platzilla",
+    period: "2026 - Presente",
+    bullets: [
+      "Desarrollo full-stack de módulos core para plataforma de organización de rutinas, datos e indicadores de gestión empresarial.",
+      "Diseño e integración de APIs RESTful desacopladas con validación estricta y UI interactiva en React 18 y TypeScript.",
+    ],
+    stack: "PHP 8.4 · React 18 · TypeScript · PostgreSQL · Docker · Playwright",
+  },
+  {
+    role: "Desarrollador Full-Stack & Consultor Técnico",
+    company: "Pensanómica (Flexio ERP, Panamá)",
+    period: "Jun 2020 - Ago 2026",
+    bullets: [
+      "Optimización de reportes de contabilidad e inventario y consultas SQL en MySQL para Flexio ERP, reduciendo tiempos de 3 horas a 1.4 segundos.",
+      "Liderazgo técnico en la migración de frontend hacia SPA en React 18 con TypeScript con cero downtime para clientes corporativos y bancarios en Panamá.",
+    ],
+    stack: "PHP · Laravel · React 18 · TypeScript · Vue.js · MySQL · Docker",
+  },
+  {
+    role: "Desarrollador Full-Stack & Team Lead",
+    company: "Medine.tech",
+    period: "Jun 2020 - Ago 2026",
+    bullets: [
+      "Desarrollo y modernización de ERP multi-tenant en LATAM: refactorización hacia Domain-Driven Design (DDD) y Arquitectura Hexagonal.",
+      "Aseguramiento de calidad continua: implementación de análisis estático con PHPStan y cobertura de pruebas automatizadas con PHPUnit y Playwright.",
+    ],
+    stack: "PHP · Laravel · React · TypeScript · MySQL · PostgreSQL · Docker",
+  },
+];
+
+const featuredProjects = [
+  {
+    title: "Moto Taxi Finance",
+    tagline: "PWA Financiera Multi-Tenant con Liquidación Parametrizada, RLS y Tasa BCV",
+    status: "En Producción",
+    url: "https://moto-taxi-finance.vercel.app/",
+    github: "https://github.com/chmalo/moto-taxi-finance",
+    stack: "Next.js 16, React 19, TypeScript, PostgreSQL (Neon), Drizzle ORM, RLS, Better-Auth, PWA",
+    points: [
+      "Aislamiento estricto multi-tenant a nivel de motor de datos con PostgreSQL Row-Level Security (RLS) en tiempo de ejecución.",
+      "Motor automatizado de liquidación financiera diaria (combustible, alquiler, reparto a fondo 'Pote Moto') con importes en enteros y sincronización programada con tasa oficial BCV.",
+    ],
+  },
+  {
+    title: "INDACSA - Planificación Agroindustrial",
+    tagline: "Sistema de Optimización y Programación de Procesamiento de Semilla Certificada",
+    status: "En Producción (On-Premise)",
+    stack: "Laravel 13, PHP 8.3, Inertia.js 3, React 19, TypeScript, PostgreSQL 17, Docker",
+    points: [
+      "Modelado de dominio industrial complejo que optimiza la secuenciación de 4 centros de maquinaria especializada, minimizando tiempos de limpieza entre variedades y eliminando hojas de cálculo manuales.",
+      "Arquitectura SPA reactiva con Server-Side Rendering (SSR) e infraestructura contenerizada de 5 servicios en Docker.",
+    ],
+  },
+  {
+    title: "Poultry Track",
+    tagline: "Sistema de Gestión Integral Avícola con Arquitectura Modular DDD",
+    status: "En Desarrollo",
+    github: "https://github.com/chmalo/poultry-track",
+    stack: "Laravel, React, TypeScript, PostgreSQL, Docker, Domain-Driven Design (DDD)",
+    points: [
+      "Monolito modular desacoplado en Bounded Contexts independientes (Cría, Almacén, Inventario, Comercial) sobre PostgreSQL con transacciones ACID.",
+      "Modelado de dominio biológico: cálculo de curvas de mortalidad, consumo de alimento y márgenes operativos.",
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="min-h-screen bg-background text-foreground">
+    <header class="no-print sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+      <div class="mx-auto flex h-16 w-full max-w-4xl items-center justify-between px-6">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 text-xs font-mono text-muted transition-colors hover:text-foreground"
+        >
+          <span class="transition-transform group-hover:-translate-x-1">←</span>
+          <span>Volver al portafolio</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            onclick="window.print()"
+            class="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-surface px-3 font-mono text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+          >
+            <Icon name="layers" class="h-3.5 w-3.5" />
+            <span>Imprimir</span>
+          </button>
+
+          <a
+            href={profile.cvUrl}
+            download="cv_christian_fernandez.pdf"
+            class="inline-flex h-9 items-center gap-1.5 rounded-full bg-accent px-4 font-mono text-xs font-bold uppercase text-white dark:text-neutral-950 transition-colors hover:bg-accent-strong"
+          >
+            <Icon name="arrow-up-right" class="h-3.5 w-3.5 rotate-90" />
+            <span>Descargar PDF</span>
+          </a>
+
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-4xl px-4 py-8 md:px-8 print:p-0 print:max-w-none">
+      <article class="cv-paper rounded-2xl border border-border bg-surface p-8 shadow-xs md:p-12 print:border-none print:bg-white print:p-0 print:shadow-none print:text-black">
+        <header class="border-b border-border pb-6 print:border-neutral-300">
+          <h1 class="text-3xl font-bold font-sans tracking-tight text-foreground print:text-black">
+            {profile.name.toUpperCase()}
+          </h1>
+          <p class="mt-1 text-sm font-mono font-medium text-accent print:text-neutral-800">
+            Desarrollador Full-Stack | Sistemas ERP, APIs &amp; Arquitectura de Software
+          </p>
+
+          <div class="mt-3 flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-mono text-muted print:text-neutral-700">
+            <span>Correo: <a href={`mailto:${profile.email}`} class="text-foreground hover:text-accent print:text-black underline">{profile.email}</a></span>
+            <span class="text-subtle print:text-neutral-400">|</span>
+            <span>Tel: <a href={profile.phoneHref} class="text-foreground hover:text-accent print:text-black">{profile.phone}</a></span>
+            <span class="text-subtle print:text-neutral-400">|</span>
+            <span>Ubicación: {profile.location}</span>
+          </div>
+
+          <div class="mt-2 flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-mono text-muted print:text-neutral-700">
+            <a href={profile.social.github} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline print:text-neutral-900">
+              GitHub: github.com/chmalo
+            </a>
+            <span class="text-subtle print:text-neutral-400">|</span>
+            <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline print:text-neutral-900">
+              LinkedIn: linkedin.com/in/christian-fernandez-dev
+            </a>
+            <span class="text-subtle print:text-neutral-400">|</span>
+            <a href="/" class="text-accent hover:underline print:text-neutral-900">
+              Portafolio: christianfernandez.dev
+            </a>
+          </div>
+        </header>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Resumen Profesional
+          </h2>
+          <p class="mt-2.5 text-sm leading-relaxed text-muted font-sans text-justify print:text-neutral-800">
+            {profile.cvSummary}
+          </p>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Experiencia Laboral
+          </h2>
+          <div class="mt-3 space-y-5">
+            {jobs.map((job) => (
+              <div>
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-sm font-bold text-foreground font-sans print:text-black">
+                    {job.role} <span class="font-normal text-accent print:text-neutral-800">| {job.company}</span>
+                  </h3>
+                  <span class="font-mono text-xs text-muted print:text-neutral-600">{job.period}</span>
+                </div>
+                <ul class="mt-1.5 space-y-1 text-xs text-muted font-sans print:text-neutral-800">
+                  {job.bullets.map((bullet) => (
+                    <li class="flex items-start gap-1.5 text-justify">
+                      <span class="text-accent print:text-neutral-500">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="mt-1 font-mono text-[11px] text-subtle print:text-neutral-600">
+                  <strong class="font-semibold text-muted print:text-black">Stack:</strong> {job.stack}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Proyectos de Software &amp; Arquitectura
+          </h2>
+          <div class="mt-3 space-y-5">
+            {featuredProjects.map((proj) => (
+              <div>
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-sm font-bold text-foreground font-sans print:text-black">
+                      {proj.title}
+                    </h3>
+                    <span class="font-mono text-[11px] text-accent print:text-neutral-700">
+                      ({proj.status})
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-3 font-mono text-xs text-accent print:text-neutral-700">
+                    {proj.url && (
+                      <a href={proj.url} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        [Demo en vivo]
+                      </a>
+                    )}
+                    {proj.github && (
+                      <a href={proj.github} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        [Código en GitHub]
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <p class="mt-0.5 text-xs italic text-subtle font-sans print:text-neutral-600">
+                  {proj.tagline}
+                </p>
+                <ul class="mt-1.5 space-y-1 text-xs text-muted font-sans print:text-neutral-800">
+                  {proj.points.map((pt) => (
+                    <li class="flex items-start gap-1.5 text-justify">
+                      <span class="text-accent print:text-neutral-500">•</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="mt-1 font-mono text-[11px] text-subtle print:text-neutral-600">
+                  <strong class="font-semibold text-muted print:text-black">Tecnologías:</strong> {proj.stack}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Habilidades Técnicas
+          </h2>
+          <div class="mt-2.5 space-y-1.5 text-xs font-sans print:text-neutral-800">
+            {skillGroups.map((group) => (
+              <p class="leading-relaxed">
+                <strong class="font-mono font-semibold text-foreground print:text-black">• {group.name}:</strong>{" "}
+                <span class="text-muted print:text-neutral-700">{group.items}</span>
+              </p>
+            ))}
+          </div>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Educación &amp; Certificaciones
+          </h2>
+          <div class="mt-2.5 space-y-2 text-xs font-sans print:text-neutral-800">
+            <div>
+              <p class="font-bold text-foreground print:text-black">
+                {education.degree} <span class="font-normal text-muted print:text-neutral-700">| {education.institution}</span>{" "}
+                <span class="font-mono text-[11px] text-subtle print:text-neutral-600">({education.status})</span>
+              </p>
+            </div>
+            <ul class="space-y-1">
+              {certifications.map((cert) => (
+                <li class="flex items-start gap-1.5 text-muted print:text-neutral-700">
+                  <span class="text-accent print:text-neutral-500">•</span>
+                  <span><strong>{cert.title}</strong> | {cert.issuer} ({cert.year})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-foreground border-b border-border pb-1 print:border-neutral-300 print:text-black">
+            Idiomas
+          </h2>
+          <p class="mt-2 text-xs font-sans text-muted print:text-neutral-800">
+            {languages.map((l) => `${l.name}: ${l.level}`).join("   |   ")}
+          </p>
+        </section>
+      </article>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  @media print {
+    :global(body) {
+      background: white !important;
+      color: black !important;
+      font-size: 11pt;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    .cv-paper {
+      background: white !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    @page {
+      size: letter;
+      margin: 12mm 15mm;
+    }
+  }
+</style>
